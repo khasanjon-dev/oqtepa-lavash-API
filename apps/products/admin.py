@@ -1,14 +1,13 @@
-from django.contrib import admin
-from modeltranslation.admin import TranslationAdmin
+from django.contrib.admin import register, ModelAdmin
 
 from products.models import Product, Category
 
 
-@admin.register(Product)
-class ProductAdmin(TranslationAdmin):
+@register(Product)
+class ProductAdmin(ModelAdmin):
     list_display = ('name', 'description', 'price')
 
 
-@admin.register(Category)
-class CategoryAdmin(TranslationAdmin):
-    list_display = ('name',)
+@register(Category)
+class CategoryAdmin(ModelAdmin):
+    list_display = ('name', 'icon')

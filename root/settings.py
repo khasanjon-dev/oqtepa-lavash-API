@@ -15,9 +15,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
-    # third party apps
-    'modeltranslation',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,7 +34,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',  # for multilanguage changed
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -65,18 +61,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'root.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT')
     }
 }
-
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -96,26 +90,29 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en'
 TIME_ZONE = 'Asia/Tashkent'
+
 USE_I18N = True
-USE_L10N = True
+
 USE_TZ = True
 
-LANGUAGES = (
-    ('en', 'English'),
-    ('uz', 'Uzbek'),
-    ('ru', 'Russian'),
-)
-
-LOCALE_PATHS = [
-    BASE_DIR / 'locale/',
-]
-
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
-MODELTRANSLATION_LANGUAGES = ('en', 'uz', 'ru')
-
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR / 'static')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOCATION_REDIS = os.getenv('REDIS_URL') + '/1'
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": LOCATION_REDIS,
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        },
+        "KEY_PREFIX": "lavash"
+    }
+}
+
+REDIS_TIMEOUT = int(os.getenv('REDIS_TIMEOUT'))
