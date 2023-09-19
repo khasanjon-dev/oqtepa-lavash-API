@@ -13,5 +13,6 @@ class ProductAdmin(ModelAdmin):
 class CategoryAdmin(ModelAdmin):
     list_display = ('name', 'picture')
 
-    def picture(self, obj):
+    @staticmethod
+    def picture(obj):
         return format_html('<img src="{}" width="50" height="50" style="border-radius:50%"'.format(obj.icon.url))
