@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from users.models import User
-from users.serializers import UserModelSerializer, RegisterSerializer, CodeCheckSerializer
+from users.serializers import UserModelSerializer, CodeCheckSerializer
 from users.serializers.register import PhoneSerializer
 from users.serializers.user import UserProfileSerializer, UserSerializer
 from utils.send_code import send_code_phone
