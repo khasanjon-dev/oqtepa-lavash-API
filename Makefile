@@ -6,4 +6,4 @@ mig:
 	python3 manage.py migrate
 
 admin:
-	python3 manage.py createsuperuser --username admin --email admin@gmail.com
+	python3 manage.py createsuperuser --phone 901001010

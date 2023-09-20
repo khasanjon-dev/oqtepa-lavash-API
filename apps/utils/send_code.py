@@ -10,7 +10,7 @@ def generate_code():
     return code
 
 
-def send_code(phone: str):
+def send_code_phone(phone: str):
     code = generate_code()
     cache.set(phone, code, timeout=REDIS_TIMEOUT)
     print(cache.get(phone))
