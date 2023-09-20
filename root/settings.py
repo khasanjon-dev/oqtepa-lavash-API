@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     # third party apps
     'rest_framework',
     'drf_yasg',
+    'rest_framework_simplejwt',
 
     # my apps
     'users',
@@ -116,3 +117,9 @@ CACHES = {
 }
 
 REDIS_TIMEOUT = int(os.getenv('REDIS_TIMEOUT'))
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}

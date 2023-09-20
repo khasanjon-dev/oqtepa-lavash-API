@@ -1,9 +1,12 @@
-from django.db.models import Model, ForeignKey, SET_NULL, DateTimeField, BooleanField, CASCADE, IntegerField
+from django.db.models import Model, ForeignKey, SET_NULL, DateTimeField, CASCADE, IntegerField
+
+from products.models import Product
+from users.models import User, Address
 
 
 class Order(Model):
-    customer = ForeignKey('User', SET_NULL, 'orders')
-    OrderAddress = ForeignKey('Address', SET_NULL)
+    customer = ForeignKey(User, SET_NULL, 'orders')
+    OrderAddress = ForeignKey(Address, SET_NULL)
 
     date_order = DateTimeField(auto_now_add=True)
 
@@ -12,8 +15,8 @@ class Order(Model):
 
 
 class OrderItem(Model):
-    product = ForeignKey('Product', SET_NULL)
-    order = ForeignKey('Order', CASCADE)
+    product = ForeignKey(Product, SET_NULL)
+    order = ForeignKey(Order, CASCADE)
     quantity = IntegerField(default=1)
 
     def __str__(self):

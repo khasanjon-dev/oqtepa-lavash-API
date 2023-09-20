@@ -15,7 +15,7 @@ class Product(Model):
     price = IntegerField()
 
     # relationships
-    category = ForeignKey('Category', CASCADE, 'products')
+    category = ForeignKey(Category, CASCADE, 'products')
 
     def __str__(self):
         return self.name
