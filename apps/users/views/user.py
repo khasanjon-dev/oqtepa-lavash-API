@@ -16,28 +16,6 @@ class UserModelViewSet(GenericViewSet):
     serializer_class = UserModelSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
-    # @action(methods=['post'], detail=False, permission_classes=(AllowAny,), serializer_class=RegisterSerializer)
-    # def register(self, request):
-    #     """
-    #     ### Sms yuborib check qilinganidan kegin bu yerga undan olingan ism va telefon raqam yuboriladi
-    #     1. /send_code/ sms yuboriladi
-    #     2. /check_code/ check qilinadi yoki /login/ qilinadi
-    #     ### ism va telefon raqam yuboriladi registratsiya qilish uchun
-    #     ```
-    #     {
-    #         "phone": "901001010",
-    #         "name" "John"
-    #     }
-    #     ```
-    #     """
-    #     serializer = self.serializer_class(data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     User.objects.update(**request.data)
-    #     detail = {
-    #         'message': 'User yangilandi!'
-    #     }
-    #     return Response(detail)
-
     @action(methods=['post'], detail=False, permission_classes=(AllowAny,), serializer_class=PhoneSerializer)
     def send_code(self, request):
         """

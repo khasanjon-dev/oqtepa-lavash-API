@@ -17,5 +17,8 @@ class Favorite(Model):
     customer = ForeignKey(User, CASCADE, 'favorites')
     product = ForeignKey(Product, CASCADE, 'favorites')
 
+    class Meta:
+        unique_together = ('customer', 'product')
+
     def __str__(self):
         return self.product.name
