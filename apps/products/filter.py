@@ -4,7 +4,7 @@ from products.models import Product
 
 
 class ProductFilterSet(FilterSet):
-    category_id = NumberFilter('category_id', 'exact', required=True)
+    category_id = NumberFilter('category_id', 'exact')
 
     class Meta:
         model = Product

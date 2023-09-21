@@ -45,7 +45,7 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
     @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
-            url_path='delete-favorite')
+            url_path='delete-favorite', filter_backends=None)
     def delete_favorite(self, request, pk):
         """
         sevimlilardan o'chirish
@@ -57,6 +57,25 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             print(e)
             detail = {'message': "Sevimlilardan o'chirishda xatolik!"}
             return Response(detail, status.HTTP_400_BAD_REQUEST)
+
+    @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,), serializer_class=ProductSerializer,
+            url_path='favorites')
+    def favorites(self, request):
+        """
+        ```
+        favorite lar listini olish uchun
+        ```
+        """
+        favorites = request.user.favorites
+        favorites_ids = favorites.values_list('product', flat=True)
+        query = self.get_queryset()
+        queryset = query.filter(id__in=favorites_ids)
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
     @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
             url_path='add-basket')
@@ -89,3 +108,22 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             print(e)
             detail = {'message': "Savatdan o'chirishda xatolik!"}
             return Response(detail, status.HTTP_400_BAD_REQUEST)
+
+    @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,), serializer_class=ProductSerializer,
+            url_path='basket')
+    def baskets(self, request):
+        """
+        ```
+        savat dagi productlar listini olish
+        ```
+        """
+        basket = request.user.basket
+        basket_ids = basket.values_list('product', flat=True)
+        query = self.get_queryset()
+        queryset = query.filter(id__in=basket_ids)
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
