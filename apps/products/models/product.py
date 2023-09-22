@@ -1,12 +1,6 @@
 from django.db.models import Model, ImageField, CharField, TextField, IntegerField, ForeignKey, CASCADE
 
-
-class Category(Model):
-    name = CharField(max_length=150)
-    icon = ImageField(upload_to='products/category/icons')
-
-    def __str__(self):
-        return self.name
+from products.models import Category
 
 
 class Product(Model):

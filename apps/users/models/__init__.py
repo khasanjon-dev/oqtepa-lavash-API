@@ -1,2 +1,2 @@
 from .user import User
-from .addition import Favorite, Address
+from .addition import Favorite
