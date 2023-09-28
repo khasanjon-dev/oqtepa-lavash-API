@@ -67,7 +67,7 @@ Auth qismi parol va username emas balki telefon raqam va unga keluvchi kod orqal
 
 
     "phone": "901001010",  
-    "code": "2010"
+    "code": 2010
 
 
 *__return__*
