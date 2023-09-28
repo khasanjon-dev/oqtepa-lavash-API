@@ -1,5 +1,5 @@
 
-#  [Oqtepa Lavash](https://oqtepalavash.uz/)
+#  [Oqtepa Lavash Clone](https://oqtepalavash.uz/)
 
 ### Oqtepa Lavash saytining Backend qismi API
 ## Documentation
