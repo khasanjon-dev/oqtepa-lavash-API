@@ -15,7 +15,7 @@ DB_PORT=5432
 REDIS_URL=redis://127.0.0.1:6379
 REDIS_TIMEOUT=300 # in second
 ```
-## Bazi o'zgarishlar
+## Bazi o'zgarishlar *
 Auth qismi parol va username emas balki telefon raqam va unga keluvchi kod orqali tasdiqlashda userga acess token va refresh token beriladi va boshqa API lar odatdagidek.
 
 # Foydalanilgan Texnologiyalar
