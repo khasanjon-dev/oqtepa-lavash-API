@@ -44,8 +44,13 @@ Auth qismi parol va username emas balki telefon raqam va unga keluvchi kod orqal
 | `phone` | `string` | `Required` * |
 
 *__example__*
+      
+    "phone": "901001010"
 
-`{"phone": "901001010"}`
+
+*__return__*
+
+    "message": "Sms yuborildi!"
 
 ### Login qilish
 
@@ -60,7 +65,15 @@ Auth qismi parol va username emas balki telefon raqam va unga keluvchi kod orqal
 
 *__example__*
 
-`{"phone": "901001010", "code": "2010"}`
+
+    "phone": "901001010",  
+    "code": "2010"
+
+
+*__return__*
+
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY5NjEyNjkxOCwiaWF0IjoxNjk1ODY3NzE4LCJqdGkiOiJmODBiMzNmM2E3NjA0YWQ4OWNlY2U5ZTAzNDZhNTU1ZCIsInVzZXJfaWQiOjF9.-hRCxoMr0W0Li_K-TMMXTv8jEYUFmTIYiKSGv9ibNRI",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1OTEwOTE4LCJpYXQiOjE2OTU4Njc3MTgsImp0aSI6ImQwM2Y2MmVmODgxNjRlNGU4NTgwMDU4ODUxZmJlZWY3IiwidXNlcl9pZCI6MX0.Uy_WninfaNhKyBjWyUnSigfCiJF3cxdkL6o5_UAGExg"
 ## Support
 
 For support, email khasanjon.dev@gmail.com or telegram user [@khasanjon_dev](https://t.me/khasanjon_dev) .
