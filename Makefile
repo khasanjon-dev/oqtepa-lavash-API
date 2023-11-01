@@ -7,3 +7,5 @@ mig:
 
 admin:
 	python3 manage.py createsuperuser --phone 901001010
+
+
