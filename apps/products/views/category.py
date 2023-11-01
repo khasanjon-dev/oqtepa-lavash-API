@@ -5,5 +5,10 @@ from products.serializers import CategorySerializer
 
 
 class CategoryListAPIView(ListAPIView):
+    """
+    ```
+    categoriyalar listini olish
+    ```
+    """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
