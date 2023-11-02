@@ -1,4 +1,4 @@
-from django.db.models import Model, ImageField, CharField, TextField, TimeField
+from django.db.models import Model, ImageField, CharField, TextField, TimeField, FloatField, OneToOneField, CASCADE
 
 
 class Settings(Model):
@@ -23,7 +23,6 @@ class Social(Model):
 
 
 class Branch(Model):
-    name = CharField(max_length=250)
     phone = CharField(max_length=9)
     open_week = CharField(max_length=50)
     close_week = CharField(max_length=50)
@@ -31,3 +30,10 @@ class Branch(Model):
     # time
     open_time = TimeField()
     closing_time = TimeField()
+
+
+class Location(Model):
+    name = CharField(max_length=200)
+    latitude = FloatField()
+    longitude = FloatField()
+    branch = OneToOneField(Branch, CASCADE)
