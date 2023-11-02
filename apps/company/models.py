@@ -25,6 +25,8 @@ class Social(Model):
 class Branch(Model):
     name = CharField(max_length=250)
     phone = CharField(max_length=9)
+    open_week = CharField(max_length=50)
+    close_week = CharField(max_length=50)
 
     # time
     open_time = TimeField()
