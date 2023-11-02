@@ -7,6 +7,7 @@ class Product(Model):
     name = CharField(max_length=150)
     description = TextField()
     price = IntegerField()
+    # file
     image = ImageField(upload_to='products/images')
 
     # relationships

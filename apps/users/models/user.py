@@ -44,6 +44,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     birth_date = DateField(null=True, blank=True)
     email = EmailField(max_length=250, unique=True, null=True, blank=True)
 
+    # permissions
     is_staff = BooleanField(default=False)
     is_active = BooleanField(default=True)
     is_superuser = BooleanField(default=False)
