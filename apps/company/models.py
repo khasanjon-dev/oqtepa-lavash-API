@@ -23,7 +23,8 @@ class Social(Model):
 
 
 class Branch(Model):
-    phone = CharField(max_length=9)
+    name = CharField(max_length=200)
+    phone = CharField(max_length=100)
     open_week = CharField(max_length=50)
     close_week = CharField(max_length=50)
 
@@ -31,9 +32,14 @@ class Branch(Model):
     open_time = TimeField()
     closing_time = TimeField()
 
+    def __str__(self):
+        return self.name
+
 
 class Location(Model):
-    name = CharField(max_length=200)
     latitude = FloatField()
     longitude = FloatField()
     branch = OneToOneField(Branch, CASCADE)
+
+    def __str__(self):
+        return self.branch.name
