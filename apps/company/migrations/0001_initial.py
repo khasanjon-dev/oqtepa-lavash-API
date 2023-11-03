@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
             name='Phone',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('phone', models.CharField(max_length=9)),
+                ('phone', models.CharField(max_length=100)),
             ],
         ),
         migrations.CreateModel(

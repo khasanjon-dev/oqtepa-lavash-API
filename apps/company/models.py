@@ -17,7 +17,7 @@ class About(Model):
 
 
 class Phone(Model):
-    phone = CharField(max_length=9)
+    phone = CharField(max_length=100)
 
 
 class Social(Model):
