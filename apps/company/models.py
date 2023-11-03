@@ -5,6 +5,9 @@ class Settings(Model):
     # file
     logo = ImageField(upload_to='company/images')
 
+    class Meta:
+        verbose_name_plural = 'Settings'
+
 
 class About(Model):
     title = CharField(max_length=250)
