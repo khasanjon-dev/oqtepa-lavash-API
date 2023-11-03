@@ -45,6 +45,9 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('logo', models.ImageField(upload_to='company/images')),
             ],
+            options={
+                'verbose_name_plural': 'Settings',
+            }
         ),
         migrations.CreateModel(
             name='Social',
