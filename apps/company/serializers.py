@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from company.models import About, Phone, Social
+from company.models import About, Phone, Social, Settings
 
 
 class AboutModelSerializer(ModelSerializer):
@@ -18,4 +18,10 @@ class PhoneModelSerializer(ModelSerializer):
 class SocialModelSerializer(ModelSerializer):
     class Meta:
         model = Social
+        fields = '__all__'
+
+
+class SettingsModelSerializer(ModelSerializer):
+    class Meta:
+        model = Settings
         fields = '__all__'
