@@ -31,6 +31,7 @@ class Social(Model):
     link = CharField(max_length=250)
 
 
+
 class Branch(Model):
     name = CharField(max_length=200)
     phone = CharField(max_length=100)

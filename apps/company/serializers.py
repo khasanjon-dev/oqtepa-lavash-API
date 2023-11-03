@@ -1,16 +1,21 @@
 from rest_framework.serializers import ModelSerializer
 
-from company.models import About, Phone
+from company.models import About, Phone, Social
 
 
-class AboutSerializer(ModelSerializer):
+class AboutModelSerializer(ModelSerializer):
     class Meta:
         model = About
         fields = '__all__'
 
 
-class PhoneSerializer(ModelSerializer):
+class PhoneModelSerializer(ModelSerializer):
     class Meta:
         model = Phone
         fields = '__all__'
-        ref_name = 'PhoneSerializer'
+
+
+class SocialModelSerializer(ModelSerializer):
+    class Meta:
+        model = Social
+        fields = '__all__'
