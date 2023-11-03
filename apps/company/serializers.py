@@ -7,9 +7,11 @@ class AboutSerializer(ModelSerializer):
     class Meta:
         model = About
         fields = '__all__'
+        ref_name = 'AboutSerializer'
 
 
 class PhoneSerializer(ModelSerializer):
     class Meta:
         model = Phone
-        fields = ('phone',)
+        fields = '__all__'
+        ref_name = 'PhoneSerializer'
