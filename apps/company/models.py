@@ -1,9 +1,14 @@
-from django.db.models import Model, ImageField, CharField, TextField, TimeField, FloatField, OneToOneField, CASCADE
+from django.db.models import Model, ImageField, CharField, TextField, TimeField, FloatField, OneToOneField, CASCADE, \
+    JSONField
 
 
 class Settings(Model):
     # file
     logo = ImageField(upload_to='company/images')
+    picture = ImageField(upload_to='company/images')
+    qr_code = ImageField(upload_to='company/images')
+    qr_text = CharField(max_length=250, default='hello')
+    contacts = JSONField(default=dict())
 
     class Meta:
         verbose_name_plural = 'Settings'
@@ -29,7 +34,6 @@ class Phone(Model):
 class Social(Model):
     name = CharField(max_length=250)
     link = CharField(max_length=250)
-
 
 
 class Branch(Model):
