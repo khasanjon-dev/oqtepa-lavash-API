@@ -17,13 +17,13 @@ class About(Model):
 
 
 class Phone(Model):
-    phone = CharField(max_length=100)
-
-    class Meta:
-        verbose_name_plural = 'phone'
+    phone_number = CharField(max_length=100)
 
     def __str__(self):
-        return self.phone
+        return self.phone_number
+
+    class Meta:
+        verbose_name_plural = 'Phone'
 
 
 class Social(Model):
