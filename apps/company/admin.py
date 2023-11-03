@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 
 from company.models import Settings, About, Phone, Social, Branch, Location
 
@@ -10,7 +11,11 @@ class SettingsAdmin(admin.ModelAdmin):
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'picture')
+
+    @staticmethod
+    def picture(obj):
+        return format_html('<img src="{}" width="50" height="50" style="border-radius:50%"'.format(obj.image.url))
 
 
 @admin.register(Phone)
