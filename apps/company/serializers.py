@@ -12,4 +12,4 @@ class AboutSerializer(ModelSerializer):
 class PhoneSerializer(ModelSerializer):
     class Meta:
         model = Phone
-        fields = '__all__'
+        fields = ('phone',)

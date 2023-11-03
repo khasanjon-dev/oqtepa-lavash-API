@@ -19,6 +19,12 @@ class About(Model):
 class Phone(Model):
     phone = CharField(max_length=100)
 
+    class Meta:
+        verbose_name_plural = 'phone'
+
+    def __str__(self):
+        return self.phone
+
 
 class Social(Model):
     name = CharField(max_length=250)

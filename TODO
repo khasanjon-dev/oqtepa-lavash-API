@@ -1,2 +1,4 @@
 1. company about qo'shildi va bir nechta model qo'shildi lekn makemigration qilinmadi
 2. barcha companyga tegishli api larni chiqarish
+
+phone serializer muammo chiqdi
