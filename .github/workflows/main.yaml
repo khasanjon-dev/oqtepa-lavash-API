@@ -17,7 +17,7 @@ jobs:
           python-version: 3.x
 
       - name: Deploy to server
-        uses: appleboy/ssh-action@main
+        uses: appleboy/ssh-action@master
         with:
           host: 2.59.40.214
           username: root
