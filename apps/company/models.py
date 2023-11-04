@@ -20,6 +20,9 @@ class About(Model):
     # file
     image = ImageField(upload_to='company/images')
 
+    class Meta:
+        verbose_name_plural = 'About'
+
 
 class Phone(Model):
     phone_number = CharField(max_length=100)
@@ -34,6 +37,12 @@ class Phone(Model):
 class Social(Model):
     name = CharField(max_length=250)
     link = CharField(max_length=250)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Social'
 
 
 class Branch(Model):

@@ -25,7 +25,7 @@ class PhoneAdmin(admin.ModelAdmin):
 
 @admin.register(Social)
 class SocialAdmin(admin.ModelAdmin):
-    list_display = ('name', 'link')
+    pass
 
 
 @admin.register(Branch)
