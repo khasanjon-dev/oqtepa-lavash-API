@@ -25,7 +25,6 @@ jobs:
           username: root
           password: eybM9xJdNjKV+^
           key: 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
-          # port: ${{ secrets.PORT }}
           script: |
             cd /var/www/oqtepalavash/backend
             git pull
