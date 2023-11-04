@@ -28,7 +28,7 @@ jobs:
           python manage.py test
 
       - name: Deploy to server
-        uses: easingthemes/ssh-deploy@v2
+        uses: easingthemes/ssh-deploy@v3
         with:
           username: ${{ secrets.SSH_USER }}
           host: ${{ secrets.SSH_HOST }}
