@@ -26,9 +26,9 @@ jobs:
       - name: Deploy to server
         uses: easingthemes/ssh-deploy@v3
         with:
-          username: ${{ secrets.SSH_USER }}
-          host: ${{ secrets.SSH_HOST }}
-          port: ${{ secrets.SSH_PORT }}
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: /var/www/oqtepalavash/backend
-          target: /var/www/oqtepalavash/backend
+          REMOTE_USERNAME: ${{ secrets.SSH_USER }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: /var/www/oqtepalavash/backend
+          TARGET: /var/www/oqtepalavash/backend
