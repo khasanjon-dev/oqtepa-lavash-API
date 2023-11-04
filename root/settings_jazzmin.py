@@ -12,10 +12,10 @@ JAZZMIN_SETTINGS = {
     "site_logo": "admin/protection.png",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
-    "login_logo": "admin/user-gear",
+    "login_logo": "admin/user-gear.png",
 
     # Logo to use for login form in dark themes (defaults to login_logo)
-    "login_logo_dark": 'admin/protection.png',
+    "login_logo_dark": 'admin/login-icon.png',
 
     # CSS classes that are applied to the logo above
     "site_logo_classes": "img-circle",
