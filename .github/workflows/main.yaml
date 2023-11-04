@@ -31,5 +31,6 @@ jobs:
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_PORT: ${{ secrets.SSH_PORT }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
           SOURCE: /var/www/oqtepalavash/backend
           TARGET: /var/www/oqtepalavash/backend
