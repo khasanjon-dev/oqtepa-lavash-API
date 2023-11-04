@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
                 ('text', models.TextField()),
                 ('image', models.ImageField(upload_to='company/images')),
             ],
+            options={'verbose_name_plural': 'About'},
         ),
         migrations.CreateModel(
             name='Branch',
@@ -44,7 +45,12 @@ class Migration(migrations.Migration):
             name='Settings',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('logo', models.ImageField(upload_to='company/images')),
+                ('logo', models.FileField(upload_to='company/images')),
+                ('picture', models.ImageField(upload_to='company/images')),
+                ('qr_code', models.ImageField(upload_to='company/images')),
+                ('qr_text', models.CharField(max_length=250)),
+                ('bot_url', models.CharField(max_length=250)),
+                ('phone', models.CharField(max_length=100)),
             ],
             options={
                 'verbose_name_plural': 'Settings',
@@ -57,6 +63,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=250)),
                 ('link', models.CharField(max_length=250)),
             ],
+            options={'verbose_name_plural': 'Social'},
         ),
         migrations.CreateModel(
             name='Location',
