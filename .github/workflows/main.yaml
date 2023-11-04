@@ -1,12 +1,12 @@
-name: Django CI/CD
+name: Oqtepalavash server
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,19 +18,19 @@ jobs:
         with:
           python-version: 3.x
 
-      - name: Install dependencies
-        run: |
-          
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
       - name: Deploy to server
-        uses: easingthemes/ssh-deploy@v3
+        uses: appleboy/ssh-action@master
         with:
-          REMOTE_USER: ${{ secrets.SSH_USER }}
-          REMOTE_HOST: ${{ secrets.SSH_HOST }}
-          REMOTE_PORT: ${{ secrets.SSH_PORT }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.SERVER_HOST }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          key: ${{ secrets.SECRET_KEY_GITHUB }}
+          # port: ${{ secrets.PORT }}
+          script: |
+            cd /var/www/oqtepalavash/backend
+            git pull
+            source venv/bin/activate
+            pip install -r requirements.txt
+            systemctl restart oqtepalavash.service
+            systemctl reload nginx.service
 
-          SOURCE: /var/www/oqtepalavash/backend
-          TARGET: /var/www/oqtepalavash/backend
+
