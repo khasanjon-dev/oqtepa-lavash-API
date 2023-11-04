@@ -8,7 +8,7 @@ class Settings(Model):
     picture = ImageField(upload_to='company/images')
     qr_code = ImageField(upload_to='company/images')
     qr_text = CharField(max_length=250, default='hello')
-    contacts = JSONField(default=dict())
+    contacts = JSONField(default=dict)
 
     class Meta:
         verbose_name_plural = 'Settings'
