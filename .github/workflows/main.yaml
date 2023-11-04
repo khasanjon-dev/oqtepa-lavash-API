@@ -28,9 +28,9 @@ jobs:
           script: |
             cd /var/www/oqtepalavash/backend
             git pull
-            source venv/bin/activate
-            pip install -r requirements.txt
-            systemctl restart oqtepalavash.service
-            systemctl reload nginx.service
+#            source venv/bin/activate
+#            pip install -r requirements.txt
+#            systemctl restart oqtepalavash.service
+#            systemctl reload nginx.service
 
 
