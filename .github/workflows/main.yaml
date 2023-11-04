@@ -1,33 +1,38 @@
-name: Oqtepalavash API
+name: Django CI/CD
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v2
         with:
           python-version: 3.x
 
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          python manage.py test
+
       - name: Deploy to server
-        uses: appleboy/ssh-action@master
+        uses: easingthemes/ssh-deploy@v2
         with:
-          host: 2.59.40.214
-          username: root
-          password: ${{ secrets.SERVER_CODE }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            cd /var/www/oqtepalavash/backend
-            git pull
-            source venv/bin/activate
-            pip install -r requirements.txt
-            python3 manage.py migrate
-            systemctl restart oqtepalavash.service
-            systemctl reload nginx.service
+          username: ${{ secrets.SSH_USER }}
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: /var/www/oqtepalavash/backend
+          target: /var/www/oqtepalavash/backend
