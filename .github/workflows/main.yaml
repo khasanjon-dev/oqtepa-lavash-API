@@ -31,3 +31,4 @@ jobs:
             python3 manage.py migrate
             systemctl restart oqtepalavash.service
             systemctl reload nginx.service
+
