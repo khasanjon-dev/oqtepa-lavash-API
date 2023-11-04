@@ -21,11 +21,14 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          host: 2.59.40.214
-          username: root
-          password: eybM9xJdNjKV+^
-          key: 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
+          host: ${{ secrets.SERVER_HOST }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          key: ${{ secrets.SECRET_KEY_GITHUB }}
           # port: ${{ secrets.PORT }}
           script: |
             cd /var/www/oqtepalavash/backend
             git pull
+            source venv/bin/activate
+            pip install -r requirements.txt
+            systemctl restart oqtepalavash.service
+            systemctl reload nginx.service
