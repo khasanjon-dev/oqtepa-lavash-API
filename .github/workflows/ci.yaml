@@ -1,0 +1,32 @@
+name: Oqtepalavash API
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.x
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: 2.59.40.214
+          username: root
+          password: ${{ secrets.SERVER_CODE }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd /var/www/oqtepalavash/backend
+            git pull
+            pip install -r requirements.txt
+            python3 manage.py migrate
+            systemctl restart oqtepalavash.service
+            systemctl reload nginx.service
