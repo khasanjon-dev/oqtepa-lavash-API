@@ -1,14 +1,18 @@
 from django.db.models import Model, ImageField, CharField, TextField, TimeField, FloatField, OneToOneField, CASCADE, \
-    JSONField
+    FileField
 
 
 class Settings(Model):
     # file
-    logo = ImageField(upload_to='company/images')
+    logo = FileField(upload_to='company/images')
     picture = ImageField(upload_to='company/images')
     qr_code = ImageField(upload_to='company/images')
-    qr_text = CharField(max_length=250, default='hello')
-    contacts = JSONField(default=dict)
+    qr_text = CharField(max_length=250)
+    phone = CharField(max_length=100)
+    bot_url = CharField(max_length=250)
+
+    def __str__(self):
+        return self.phone
 
     class Meta:
         verbose_name_plural = 'Settings'
