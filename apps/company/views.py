@@ -1,8 +1,8 @@
 from rest_framework.generics import ListAPIView
 
-from company.models import About, Phone, Social, Settings, Location
+from company.models import About, Phone, Social, Settings, Location, Region
 from company.serializers import AboutModelSerializer, PhoneModelSerializer, SocialModelSerializer, \
-    SettingsModelSerializer, LocationModelSerializer
+    SettingsModelSerializer, LocationModelSerializer, RegionModelSerializer
 
 
 class AboutListAPIView(ListAPIView):
@@ -28,3 +28,8 @@ class SettingsListAPIView(ListAPIView):
 class LocationListAPIView(ListAPIView):
     queryset = Location.objects.all()
     serializer_class = LocationModelSerializer
+
+
+class RegionListAPIView(ListAPIView):
+    queryset = Region.objects.all()
+    serializer_class = RegionModelSerializer

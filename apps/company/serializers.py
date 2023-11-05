@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from company.models import About, Phone, Social, Settings, Branch, Location
+from company.models import About, Phone, Social, Settings, Branch, Location, Region
 
 
 class AboutModelSerializer(ModelSerializer):
@@ -39,3 +39,9 @@ class LocationModelSerializer(ModelSerializer):
     class Meta:
         model = Location
         fields = '__all__'
+
+
+class RegionModelSerializer(ModelSerializer):
+    class Meta:
+        model = Region
+        fields = ('name',)
