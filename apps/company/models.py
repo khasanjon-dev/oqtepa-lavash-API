@@ -72,5 +72,5 @@ class Location(Model):
         return self.branch.name
 
 
-class Area(Model):
+class Region(Model):
     name = CharField(max_length=250)

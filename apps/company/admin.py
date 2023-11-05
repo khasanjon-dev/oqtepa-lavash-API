@@ -36,3 +36,8 @@ class BranchAdmin(admin.ModelAdmin):
 @admin.register(Location)
 class LocationAdmin(admin.ModelAdmin):
     pass
+
+
+# @admin.register(Region)
+# # class RegionAdmin(admin.ModelAdmin):
+#     pass
