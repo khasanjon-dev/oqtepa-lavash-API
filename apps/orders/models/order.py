@@ -10,8 +10,7 @@ class Order(Model):
         PICKUP = 'pickup', 'pickup'
 
     address = TextField()
-    status = BooleanField(default=False)
-    date = DateTimeField(auto_now_add=True)
+    created_date = DateTimeField(auto_now_add=True)
 
     # choices
     reception_type = CharField(max_length=8, choices=ReceptionType.choices)

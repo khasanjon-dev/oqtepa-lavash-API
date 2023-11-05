@@ -51,6 +51,7 @@ class Migration(migrations.Migration):
                 ('qr_text', models.CharField(max_length=250)),
                 ('bot_url', models.CharField(max_length=250)),
                 ('phone', models.CharField(max_length=100)),
+                ('delivery_price', models.IntegerField()),
             ],
             options={
                 'verbose_name_plural': 'Settings',

@@ -1,4 +1,4 @@
-from django.db.models import Model, FileField, ImageField, CharField, TextField
+from django.db.models import Model, FileField, ImageField, CharField, TextField, IntegerField
 
 
 class Settings(Model):
@@ -10,6 +10,7 @@ class Settings(Model):
     qr_text = CharField(max_length=250)
     phone = CharField(max_length=100)
     bot_url = CharField(max_length=250)
+    delivery_price = IntegerField()
 
     def __str__(self):
         return self.phone
