@@ -9,4 +9,12 @@ class OrderSerializer(ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ('customer', 'address', 'product')
+        fields = '__all__'
+
+
+class OrderCreateAPIViewModelSerializer(ModelSerializer):
+    customer = HiddenField(default=CurrentUserDefault())
+
+    class Meta:
+        model = Order
+        fields = ('address', 'delivery_price', 'reception_type', 'customer')

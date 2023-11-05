@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from users.models import User
-from users.serializers import UserModelSerializer, CodeCheckSerializer
+from users.serializers import UserModelSerializer, CodeCheckSerializer, RegisterSerializer
 from users.serializers.register import PhoneSerializer
 from users.serializers.user import UserProfileSerializer, UserSerializer
 from utils.send_code import send_code_phone
@@ -15,6 +15,32 @@ class UserModelViewSet(GenericViewSet):
     queryset = User.objects.all()
     serializer_class = UserModelSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    @action(methods=['post'], detail=False, permission_classes=(AllowAny,), serializer_class=RegisterSerializer)
+    def register(self, request):
+        """
+        ## register qilish uchun
+        ```
+        {
+            "name": "Khasan",
+            "phone": "901001010"
+        }
+        ```
+        """
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        phone = serializer.data.get('phone')
+        name = serializer.data.get('name')
+        user, created = User.objects.update_or_create(phone=phone)
+        user.name = name
+        code = send_code_phone(user.phone)
+        data = serializer.data
+        detail = 'update'
+        if created:
+            detail = 'create'
+        data['message'] = detail
+        data['code'] = code
+        return Response(data)
 
     @action(methods=['post'], detail=False, permission_classes=(AllowAny,), serializer_class=PhoneSerializer)
     def send_code(self, request):

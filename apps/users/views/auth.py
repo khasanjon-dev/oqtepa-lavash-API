@@ -6,11 +6,12 @@ from users.serializers.jwt_auth import MyTokenObtainPairSerializer
 
 class LoginView(TokenObtainPairView):
     """
+    ## 1. bundan avval register ga yuboriladi
     ## login qilish uchun
     ```
     {
         "phone": "901001010",
-        "code": "2010"
+        "code": "2010",
     }
     ```
     """
