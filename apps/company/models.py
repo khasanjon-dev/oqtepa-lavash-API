@@ -74,3 +74,6 @@ class Location(Model):
 
 class Region(Model):
     name = CharField(max_length=250)
+
+    def __str__(self):
+        return self.name
