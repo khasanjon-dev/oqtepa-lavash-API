@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from company.models import Settings, About, Phone, Social, Branch, Location
+from company.models import Settings, About, Phone, Social, Branch, Location, Region
 
 
 @admin.register(Settings)
@@ -38,6 +38,6 @@ class LocationAdmin(admin.ModelAdmin):
     pass
 
 
-# @admin.register(Region)
-# # class RegionAdmin(admin.ModelAdmin):
-#     pass
+@admin.register(Region)
+class RegionAdmin(admin.ModelAdmin):
+    pass
