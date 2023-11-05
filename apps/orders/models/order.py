@@ -1,23 +1,20 @@
-from django.db.models import ForeignKey, SET_NULL, Model, TextField, DateTimeField, BooleanField, TextChoices, CharField
+from django.db.models import ForeignKey, Model, TextField, DateTimeField, TextChoices, CharField, CASCADE, IntegerField
 
-from products.models import Product
 from users.models import User
 
 
 class Order(Model):
     class ReceptionType(TextChoices):
-        DELIVERY = 'delivery', 'delivery'
-        PICKUP = 'pickup', 'pickup'
+        DELIVERY = 'delivery', 'Delivery'
+        PICKUP = 'pickup', 'Pickup'
 
     address = TextField()
     created_date = DateTimeField(auto_now_add=True)
-
+    delivery_price = IntegerField()
     # choices
     reception_type = CharField(max_length=8, choices=ReceptionType.choices)
-
     # relationships
-    product = ForeignKey(Product, SET_NULL, null=True)
-    customer = ForeignKey(User, SET_NULL, null=True)
+    customer = ForeignKey(User, CASCADE, 'orders')
 
     def __str__(self):
-        return self.customer.name + self.product.name
+        return self.customer.name + ' ' + self.address
