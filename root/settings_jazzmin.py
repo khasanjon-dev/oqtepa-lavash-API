@@ -100,12 +100,15 @@ JAZZMIN_SETTINGS = {
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",
         "auth.Group": "fas fa-users",
+
         "company.settings": "fas fa-tools",
         "company.social": "fas fa-share-alt-square",
         "company.phone": "fas fa-phone-square-alt",
         "company.location": "fas fa-map-marked-alt",
         "company.branch": "fas fa-code-branch",
         "company.about": "far fa-address-card",
+        "company.region": "fas fa-map-pin",
+
         "products.product": "fas fa-pizza-slice",
         "products.category": "fas fa-clipboard-list",
     },
