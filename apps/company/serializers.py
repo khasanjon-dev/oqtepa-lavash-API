@@ -44,4 +44,4 @@ class LocationModelSerializer(ModelSerializer):
 class RegionModelSerializer(ModelSerializer):
     class Meta:
         model = Region
-        fields = ('name',)
+        fields = ('id', 'name')
