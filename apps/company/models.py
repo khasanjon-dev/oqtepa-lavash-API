@@ -70,3 +70,7 @@ class Location(Model):
 
     def __str__(self):
         return self.branch.name
+
+
+class Area(Model):
+    name = CharField(max_length=250)
