@@ -1,0 +1,12 @@
+- model: company.social
+  pk: 1
+  fields:
+    name: "telegram"
+    link: "https://t.me/oqtepalavash_bot"
+
+
+- model: company.social
+  pk: 2
+  fields:
+    name: "instagram"
+    link: "https://www.instagram.com/oqtepalavash.official/"
