@@ -1,0 +1,10 @@
+- model: company.phone
+  pk: 1
+  fields:
+    phone_number: "+998931230037"
+
+
+- model: company.phone
+  pk: 2
+  fields:
+    phone_number: "+998781500030"
