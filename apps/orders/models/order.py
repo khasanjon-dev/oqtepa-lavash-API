@@ -1,4 +1,5 @@
-from django.db.models import ForeignKey, Model, TextField, DateTimeField, TextChoices, CharField, CASCADE, IntegerField
+from django.db.models import ForeignKey, Model, TextField, DateTimeField, TextChoices, CharField, CASCADE
+from rest_framework.fields import IntegerField
 
 from users.models import User
 
@@ -11,6 +12,7 @@ class Order(Model):
     address = TextField()
     created_date = DateTimeField(auto_now_add=True)
     delivery_price = IntegerField()
+    total_price = IntegerField()
     # choices
     reception_type = CharField(max_length=8, choices=ReceptionType.choices)
     # relationships
