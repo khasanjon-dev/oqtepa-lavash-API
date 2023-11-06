@@ -9,11 +9,16 @@ class Order(Model):
         DELIVERY = 'delivery', 'Delivery'
         PICKUP = 'pickup', 'Pickup'
 
+    class PaymentType(TextChoices):
+        CASH = 'cash', 'Cash'
+        CLICK = 'click', 'Click'
+
     address = TextField()
-    created_date = DateTimeField(auto_now_add=True)
     delivery_price = IntegerField()
-    total_price = IntegerField()
+    total_price = IntegerField(default=10)
+    created_date = DateTimeField(auto_now_add=True)
     # choices
+    payment_method = CharField(max_length=5, choices=PaymentType.choices)
     reception_type = CharField(max_length=8, choices=ReceptionType.choices)
     # relationships
     customer = ForeignKey(User, CASCADE, 'orders')

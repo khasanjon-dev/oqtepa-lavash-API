@@ -6,7 +6,6 @@ from orders.serializers.orderItem import OrderItemSerializer
 
 
 class OrderSerializer(ModelSerializer):
-    order_items = OrderItemSerializer(many=True, read_only=True)
     customer = HiddenField(default=CurrentUserDefault())
 
     class Meta:
