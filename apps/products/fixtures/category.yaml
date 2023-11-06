@@ -1,0 +1,70 @@
+- model: products.category
+  pk: 1
+  fields:
+    name: "Lavashlar"
+    icon: "products/category/icons/lavashlar.jpg"
+
+- model: products.category
+  pk: 2
+  fields:
+    name: "Pitsalar"
+    icon: "products/category/icons/pitsalar.jpg"
+
+- model: products.category
+  pk: 3
+  fields:
+    name: "Burger va donerlar"
+    icon: "products/category/icons/burger-donarlar.jpg"
+- model: products.category
+  pk: 4
+  fields:
+    name: "Hot doglar"
+    icon: "products/category/icons/hot-doglar.jpg"
+
+- model: products.category
+  pk: 5
+  fields:
+    name: "Haggi"
+    icon: "products/category/icons/haggi.jpg"
+
+- model: products.category
+  pk: 6
+  fields:
+    name: "Klab sendvich"
+    icon: "products/category/icons/klab-sendvich.jpg"
+
+- model: products.category
+  pk: 7
+  fields:
+    name: "Sneklar"
+    icon: "products/category/icons/sneklar.jpg"
+
+- model: products.category
+  pk: 8
+  fields:
+    name: "Qarsildoq jojalar"
+    icon: "products/category/icons/qarsildoq-jojalar.jpg"
+
+- model: products.category
+  pk: 9
+  fields:
+    name: "Salatlar"
+    icon: "products/category/icons/salatlar.jpg"
+- model: products.category
+  pk: 10
+  fields:
+    name: "Ichimliklar"
+    icon: "products/category/icons/ichimliklar.jpg"
+
+- model: products.category
+  pk: 11
+  fields:
+    name: "Souslar"
+    icon: "products/category/icons/souslar.jpg"
+
+- model: products.category
+  pk: 12
+  fields:
+    name: "Setlar"
+    icon: "products/category/icons/setlar.jpg"
+
