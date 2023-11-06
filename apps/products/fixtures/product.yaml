@@ -1,4 +1,4 @@
-- model: products.category
+- model: products.product
   pk: 1
   fields:
     name: "Original lavash"
@@ -8,7 +8,7 @@
     category_id: 1
 
 
-- model: products.category
+- model: products.product
   pk: 2
   fields:
     name: "Original kichik lavash"
@@ -17,7 +17,7 @@
     image: "products/images/original-kichik-lavash.jpg"
     category_id: 1
 
-- model: products.category
+- model: products.product
   pk: 3
   fields:
     name: "Pishloqli lavash"
@@ -25,7 +25,7 @@
     price: 31000
     image: "products/images/pishloqli-lavash.jpg"
     category_id: 1
-- model: products.category
+- model: products.product
   pk: 4
   fields:
     name: "Pishloqli kichik lavash"
@@ -34,7 +34,7 @@
     image: "products/images/pishloqli-kichik-lavash.jpg"
     category_id: 1
 
-- model: products.category
+- model: products.product
   pk: 5
   fields:
     name: "Tandir lavash"
@@ -43,7 +43,7 @@
     image: "products/images/tandir-lavash.jpg"
     category_id: 1
 
-- model: products.category
+- model: products.product
   pk: 6
   fields:
     name: "Pishloqli tandir lavash"
@@ -52,7 +52,7 @@
     image: "products/images/pishloqli-tandir-lavash.jpg"
     category_id: 1
 
-- model: products.category
+- model: products.product
   pk: 7
   fields:
     name: "Assorti pitsa"
@@ -61,7 +61,7 @@
     image: "products/images/assorti-pitsa.jpg"
     category_id: 2
 
-- model: products.category
+- model: products.product
   pk: 8
   fields:
     name: "Pepperoni pitsa"
@@ -70,7 +70,7 @@
                    image: "products/images/pepperoni-pitsa.jpg"
     category_id: 2
 
-- model: products.category
+- model: products.product
   pk: 9
   fields:
     name: "Go'shtli pitsa"
@@ -78,7 +78,7 @@
     price: 90000
     image: "products/images/goshtli-pitsa.jpg"
     category_id: 2
-- model: products.category
+- model: products.product
   pk: 10
   fields:
     name: "Qazi pitsa"
@@ -87,7 +87,7 @@
                    image: "products/images/qazi-pitsa.jpg"
     category_id: 2
 
-- model: products.category
+- model: products.product
   pk: 11
   fields:
     name: "Tovuqli pitsa"
@@ -96,7 +96,7 @@
                    image: "products/images/tovuqli-pitsa.jpg"
     category_id: 2
 
-- model: products.category
+- model: products.product
   pk: 12
   fields:
     name: "Big burger"
@@ -105,7 +105,7 @@
                    image: "products/images/big-burger.jpg"
     category_id: 3
 
-- model: products.category
+- model: products.product
   pk: 13
   fields:
     name: "Big chizburger"
@@ -114,7 +114,7 @@
                    image: "products/images/big-chizburger.jpg"
     category_id: 3
 
-- model: products.category
+- model: products.product
   pk: 14
   fields:
     name: "Gamburger"
@@ -123,7 +123,7 @@
                    image: "products/images/gamburger.jpg"
     category_id: 3
 
-- model: products.category
+- model: products.product
   pk: 15
   fields:
     name: "Chizburger"
@@ -131,7 +131,7 @@
                    price: 25000
                    image: "products/images/chizburger.jpg"
     category_id: 3
-- model: products.category
+- model: products.product
   pk: 16
   fields:
     name: "Big doner"
@@ -140,7 +140,7 @@
     image: "products/images/big-doner.jpg"
     category_id: 3
 
-- model: products.category
+- model: products.product
   pk: 17
   fields:
     name: "Shaurma"
@@ -149,7 +149,7 @@
                    image: "products/images/shaurma.jpg"
     category_id: 3
 
-- model: products.category
+- model: products.product
   pk: 18
   fields:
     name: "Hot dog"
@@ -158,7 +158,7 @@
     image: "products/images/hot-dog.jpg"
     category_id: 4
 
-- model: products.category
+- model: products.product
   pk: 19
   fields:
     name: "Pishloqli hot dog"
@@ -167,7 +167,7 @@
     image: "products/images/pishloqli-hot-dog.jpg"
     category_id: 4
 
-- model: products.category
+- model: products.product
   pk: 20
   fields:
     name: "Shoxona hot dog"
@@ -176,7 +176,7 @@
     image: "products/images/shoxona-hot-dog.jpg"
     category_id: 4
 
-- model: products.category
+- model: products.product
   pk: 21
   fields:
     name: "Haggi"
@@ -184,7 +184,7 @@
                    price: 33000
                    image: "products/images/xaggi.jpg"
     category_id: 5
-- model: products.category
+- model: products.product
   pk: 22
   fields:
     name: "Klab sendvich"
@@ -193,7 +193,7 @@
     image: "products/images/klab-sendvich.jpg"
     category_id: 6
 
-- model: products.category
+- model: products.product
   pk: 23
   fields:
     name: "Xalapenyo"
@@ -202,7 +202,7 @@
     image: "products/images/xalapenyo.jpg"
     category_id: 7
 
-- model: products.category
+- model: products.product
   pk: 24
   fields:
     name: "Fri katta"
@@ -211,7 +211,7 @@
     image: "products/images/kartoshka-free.jpg"
     category_id: 7
 
-- model: products.category
+- model: products.product
   pk: 25
   fields:
     name: "Kartoshka fir o'rta"
@@ -220,7 +220,7 @@
     image: "products/images/kartoshka-free_XFzx7KU.jpg"
     category_id: 7
 
-- model: products.category
+- model: products.product
   pk: 26
   fields:
     name: "Kartoshka fri kichkina"
@@ -229,7 +229,7 @@
     image: "products/images/kartoshka-free-kichkina.jpg"
     category_id: 7
 
-- model: products.category
+- model: products.product
   pk: 27
   fields:
     name: "Jaydari kartoshka"
@@ -237,7 +237,7 @@
     price: 15000
     image: "products/images/jaydari-kartoshka.jpg"
     category_id: 7
-- model: products.category
+- model: products.product
   pk: 28
   fields:
     name: "Non"
@@ -246,7 +246,7 @@
     image: "products/images/non.jpg"
     category_id: 7
 
-- model: products.category
+- model: products.product
   pk: 29
   fields:
     name: "Joja box"
@@ -255,7 +255,7 @@
     image: "products/images/joja-box.jpg"
     category_id: 8
 
-- model: products.category
+- model: products.product
   pk: 30
   fields:
     name: "Stips 5 dona"
@@ -264,7 +264,7 @@
     image: "products/images/stips-5-dona.jpg"
     category_id: 8
 
-- model: products.category
+- model: products.product
   pk: 31
   fields:
     name: "Stips 3 dona"
@@ -273,7 +273,7 @@
     image: "products/images/stips-3-dona.jpg"
     category_id: 8
 
-- model: products.category
+- model: products.product
   pk: 32
   fields:
     name: "Bayts"
@@ -282,7 +282,7 @@
     image: "products/images/bayts.jpg"
     category_id: 8
 
-- model: products.category
+- model: products.product
   pk: 33
   fields:
     name: "Mujskoy kapriz"
@@ -290,7 +290,7 @@
     price: 27000
     image: "products/images/mujskoy-kapriz.jpg"
     category_id: 9
-- model: products.category
+- model: products.product
   pk: 34
   fields:
     name: "Sezar"
@@ -299,7 +299,7 @@
     image: "products/images/sezar.jpg"
     category_id: 9
 
-- model: products.category
+- model: products.product
   pk: 35
   fields:
     name: "Qora choy"
@@ -308,7 +308,7 @@
     image: "products/images/qora-choy.jpg"
     category_id: 10
 
-- model: products.category
+- model: products.product
   pk: 36
   fields:
     name: "Kok choy"
@@ -317,7 +317,7 @@
     image: "products/images/kok-choy.jpg"
     category_id: 10
 
-- model: products.category
+- model: products.product
   pk: 37
   fields:
     name: "Pepsi 0,4"
@@ -326,7 +326,7 @@
     image: "products/images/pepsi-04.jpg"
     category_id: 10
 
-- model: products.category
+- model: products.product
   pk: 38
   fields:
     name: "Pepsi 0,3"
@@ -335,7 +335,7 @@
     image: "products/images/pepsi-03.jpg"
     category_id: 10
 
-- model: products.category
+- model: products.product
   pk: 39
   fields:
     name: "Pepsi 0,5"
@@ -343,7 +343,7 @@
     price: 9000
     image: "products/images/pepsi-05.jpg"
     category_id: 10
-- model: products.category
+- model: products.product
   pk: 40
   fields:
     name: "Pepsi 0,8"
@@ -352,7 +352,7 @@
     image: "products/images/pepsi-08.jpg"
     category_id: 10
 
-- model: products.category
+- model: products.product
   pk: 41
   fields:
     name: "Pepsi 1,5"
@@ -361,7 +361,7 @@
     image: "products/images/pepsi-1-5.jpg"
     category_id: 10
 
-- model: products.category
+- model: products.product
   pk: 42
   fields:
     name: "Sochnaya dolina 1 L"
@@ -370,7 +370,7 @@
     image: "products/images/sochnaya-dolina.jpg"
     category_id: 10
 
-- model: products.category
+- model: products.product
   pk: 43
   fields:
     name: "Mirinda 0,4"
@@ -379,7 +379,7 @@
     image: "products/images/mirinda-04.jpg"
     category_id: 10
 
-- model: products.category
+- model: products.product
   pk: 44
   fields:
     name: "Mountain dew 0,4"
@@ -388,7 +388,7 @@
     image: "products/images/mountain-dew-04.jpg"
     category_id: 10
 
-- model: products.category
+- model: products.product
   pk: 45
   fields:
     name: "Lipton 0,5"
@@ -396,7 +396,7 @@
     price: 8000
     image: "products/images/lipton-05.jpg"
     category_id: 10
-- model: products.category
+- model: products.product
   pk: 46
   fields:
     name: "Qora limon choy"
@@ -405,7 +405,7 @@
     image: "products/images/qora-limon-choy.jpg"
     category_id: 10
 
-- model: products.category
+- model: products.product
   pk: 47
   fields:
     name: "Kok limon choy"
@@ -414,7 +414,7 @@
     image: "products/images/kok-limon-choy.jpg"
     category_id: 10
 
-- model: products.category
+- model: products.product
   pk: 48
   fields:
     name: "Ketchup"
@@ -423,7 +423,7 @@
     image: "products/images/ketchup.png"
     category_id: 11
 
-- model: products.category
+- model: products.product
   pk: 49
   fields:
     name: "Chili sous"
@@ -432,7 +432,7 @@
     image: "products/images/chili-sous.png"
     category_id: 11
 
-- model: products.category
+- model: products.product
   pk: 50
   fields:
     name: "Pishloqli sous"
@@ -441,7 +441,7 @@
     image: "products/images/pishloqli-sous.png"
     category_id: 11
 
-- model: products.category
+- model: products.product
   pk: 51
   fields:
     name: "Oqtepa seti"
@@ -449,7 +449,7 @@
     price: 17000
     image: "products/images/oqtepa-seti.jpg"
     category_id: 12
-- model: products.category
+- model: products.product
   pk: 52
   fields:
     name: "Juftlik seti"
@@ -458,7 +458,7 @@
     image: "products/images/juftlik-seti.jpg"
     category_id: 12
 
-- model: products.category
+- model: products.product
   pk: 53
   fields:
     name: "Baraka seti"
