@@ -1,0 +1,11 @@
+- model: company.settings
+  pk: 1
+  fields:
+    logo: "company/images/logo_2.0.svg"
+    picture: "company/images/contacts_img.jpg"
+    qr_code: "company/images/qr_oqtepa_contact.png"
+    qr_text: "Oqtepalavsh_TM"
+    bot_url: "https://t.me/oqtepalavash_bot"
+    phone: "+998 78 150 00 30"
+    delivery_price: 10000
+
