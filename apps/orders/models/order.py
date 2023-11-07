@@ -1,5 +1,4 @@
-from django.db.models import ForeignKey, Model, TextField, DateTimeField, TextChoices, CharField, CASCADE
-from rest_framework.fields import IntegerField
+from django.db.models import ForeignKey, Model, TextField, DateTimeField, TextChoices, CharField, CASCADE, IntegerField
 
 from users.models import User
 

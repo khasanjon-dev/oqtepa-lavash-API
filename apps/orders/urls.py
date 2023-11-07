@@ -5,8 +5,8 @@ from orders.views.order import OrderViewSet
 from orders.views.orderItem import OrderItemViewSet
 
 router = DefaultRouter()
-router.register('order', OrderViewSet)
-router.register('order-item', OrderItemViewSet)
+router.register('', OrderViewSet)
+router.register('item', OrderItemViewSet)
 urlpatterns = [
     path('', include(router.urls))
 ]
