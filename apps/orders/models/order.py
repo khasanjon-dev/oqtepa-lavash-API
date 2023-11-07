@@ -15,7 +15,7 @@ class Order(Model):
 
     address = TextField()
     delivery_price = IntegerField()
-    total_price = IntegerField(default=10)
+    total_price = IntegerField()
     created_date = DateTimeField(auto_now_add=True)
     # choices
     payment_method = CharField(max_length=5, choices=PaymentType.choices)

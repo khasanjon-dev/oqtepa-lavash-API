@@ -2,7 +2,6 @@ from rest_framework.fields import HiddenField, CurrentUserDefault
 from rest_framework.serializers import ModelSerializer
 
 from orders.models import Order
-from orders.serializers.orderItem import OrderItemSerializer
 
 
 class OrderSerializer(ModelSerializer):
@@ -10,4 +9,4 @@ class OrderSerializer(ModelSerializer):
 
     class Meta:
         model = Order
-        fields = '__all__'
+        fields = ('address', 'delivery_price', 'total_price', 'payment_method', 'reception_type', 'customer')
