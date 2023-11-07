@@ -65,16 +65,16 @@
   pk: 8
   fields:
     name: "Pepperoni pitsa"
-    description: ""OQTEPA" pomidor sousi, dudlangan kolbasa, Mozzarella va Akbel pishlog'i"
-                   price: 79000
-                   image: "products/images/pepperoni-pitsa.jpg"
+    description: "OQTEPA pomidor sousi, dudlangan kolbasa, Mozzarella va Akbel pishlog'i"
+    price: 79000
+    image: "products/images/pepperoni-pitsa.jpg"
     category_id: 2
 
 - model: products.product
   pk: 9
   fields:
     name: "Go'shtli pitsa"
-    description: "“OQTEPA” pomidor sousi, tovuq go‘shti, bulg‘or qalampiri, mol go‘shti, pomidor, Mozzarella va Akbel pishloqi"
+    description: "'OQTEPA' pomidor sousi, tovuq go‘shti, bulg‘or qalampiri, mol go‘shti, pomidor, Mozzarella va Akbel pishloqi"
     price: 90000
     image: "products/images/goshtli-pitsa.jpg"
     category_id: 2
@@ -82,54 +82,54 @@
   pk: 10
   fields:
     name: "Qazi pitsa"
-    description: ""OQTEPA" pomidor sousi, "Brunswick" shirin piyoz halqalari, qazi, Mozzarella va Akbel pishloqlari"
-                   price: 99000
-                   image: "products/images/qazi-pitsa.jpg"
+    description: "'OQTEPA' pomidor sousi, Brunswick shirin piyoz halqalari, qazi, Mozzarella va Akbel pishloqlari"
+    price: 99000
+    image: "products/images/qazi-pitsa.jpg"
     category_id: 2
 
 - model: products.product
   pk: 11
   fields:
     name: "Tovuqli pitsa"
-    description: ""OQTEPA" pomidor sousi, kurka, tovuq, qo'ziqorin, zaytun, pishloq, oregano"
-                   price: 85000
-                   image: "products/images/tovuqli-pitsa.jpg"
+    description: "OQTEPA pomidor sousi, kurka, tovuq, qo'ziqorin, zaytun, pishloq, oregano"
+    price: 85000
+    image: "products/images/tovuqli-pitsa.jpg"
     category_id: 2
 
 - model: products.product
   pk: 12
   fields:
     name: "Big burger"
-    description: "Shirin bulochka, maxsus sous, aysberg, tuzlangan bodring, ikkita mol go'shtidan kotlet, pomidor, "Brunswick" shirin piyoz halqalari"
-                   price: 35000
-                   image: "products/images/big-burger.jpg"
+    description: "Shirin bulochka, maxsus sous, aysberg, tuzlangan bodring, ikkita mol go'shtidan kotlet, pomidor, 'Brunswick' shirin piyoz halqalari"
+    price: 35000
+    image: "products/images/big-burger.jpg"
     category_id: 3
 
 - model: products.product
   pk: 13
   fields:
     name: "Big chizburger"
-    description: "Shirin bulochka, maxsus sous, aysberg, tuzlangan bodring, ikkita mol go'shtidan kotlet, pomidor, pishloq, "Brunswick" shirin piyoz halqalari"
-                   price: 39000
-                   image: "products/images/big-chizburger.jpg"
+    description: "Shirin bulochka, maxsus sous, aysberg, tuzlangan bodring, ikkita mol go'shtidan kotlet, pomidor, pishloq, 'Brunswick' shirin piyoz halqalari"
+    price: 39000
+    image: "products/images/big-chizburger.jpg"
     category_id: 3
 
 - model: products.product
   pk: 14
   fields:
     name: "Gamburger"
-    description: "Shirin bulochka, maxsus sous, aysberg, tuzlangan bodring, mol go'shtidan kotlet, pomidor, "Brunswick" shirin piyoz halqalari"
-                   price: 23000
-                   image: "products/images/gamburger.jpg"
+    description: "Shirin bulochka, maxsus sous, aysberg, tuzlangan bodring, mol go'shtidan kotlet, pomidor, 'Brunswick' shirin piyoz halqalari"
+    price: 23000
+    image: "products/images/gamburger.jpg"
     category_id: 3
 
 - model: products.product
   pk: 15
   fields:
     name: "Chizburger"
-    description: "Shirin bulochka, maxsus sous, aysberg, tuzlangan bodring, mol go'shtidan kotlet, pomidor, pishloq, "Brunswik" shirin piyoz halqalari"
-                   price: 25000
-                   image: "products/images/chizburger.jpg"
+    description: "Shirin bulochka, maxsus sous, aysberg, tuzlangan bodring, mol go'shtidan kotlet, pomidor, pishloq, 'Brunswik' shirin piyoz halqalari"
+    price: 25000
+    image: "products/images/chizburger.jpg"
     category_id: 3
 - model: products.product
   pk: 16
@@ -144,9 +144,9 @@
   pk: 17
   fields:
     name: "Shaurma"
-    description: "Tandirli pita noni, mol go'shti, bodring, pomidor, qizil sous, "Brunswick" shirin piyoz halqalari"
-                   price: 22000
-                   image: "products/images/shaurma.jpg"
+    description: "Tandirli pita noni, mol go'shti, bodring, pomidor, qizil sous, 'Brunswick' shirin piyoz halqalari"
+    price: 22000
+    image: "products/images/shaurma.jpg"
     category_id: 3
 
 - model: products.product
@@ -180,9 +180,9 @@
   pk: 21
   fields:
     name: "Haggi"
-    description: "Baget noni, mayonez, mol go'shti, salat bargi, bodring, pomidor, pishloq, qizil sous, "Brunswick" shirin piyoz halqalari"
-                   price: 33000
-                   image: "products/images/xaggi.jpg"
+    description: "Baget noni, mayonez, mol go'shti, salat bargi, bodring, pomidor, pishloq, qizil sous, 'Brunswick' shirin piyoz halqalari"
+    price: 33000
+    image: "products/images/xaggi.jpg"
     category_id: 5
 - model: products.product
   pk: 22
