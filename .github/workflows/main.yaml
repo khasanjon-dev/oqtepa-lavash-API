@@ -68,7 +68,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           key: ${{ secrets.SECRET_KEY_GITHUB }}
-          run: |
+          script: |
             cd /var/www/oqtepalavash/backend
             git pull
             source venv/bin/activate
