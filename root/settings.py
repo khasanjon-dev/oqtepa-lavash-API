@@ -3,6 +3,7 @@ import sys
 from datetime import timedelta
 from pathlib import Path
 
+from corsheaders.defaults import default_headers
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third party apps
-    'rest_framework',
     'drf_yasg',
+    'corsheaders',
+    'rest_framework',
     'rest_framework_simplejwt',
     'django_filters',
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -110,6 +113,28 @@ CORS_ALLOWED_ORIGINS = [
     "https://oqtepalavash-api.khasanjon.me",
     "http://localhost:5173",
 ]
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+CORS_ALLOW_HEADERS = default_headers + (
+    'cache-control',
+    'Content-Type',
+    'Authorization',
+    'Language',
+    'Referer',
+    'x-requested-with',
+    'origin',
+
+)
 
 LOCATION_REDIS = os.getenv('REDIS_URL') + '/1'
 CACHES = {

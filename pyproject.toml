@@ -17,6 +17,7 @@ psycopg2-binary = "^2.9.7"
 djangorestframework-simplejwt = "^5.3.0"
 django-filter = "^23.3"
 django-jazzmin = "^2.6.0"
+django-cors-headers = "^4.3.0"
 
 
 [build-system]
