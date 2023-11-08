@@ -6,7 +6,7 @@ from orders.models import Order
 from orders.serializers.order import OrderSerializer
 
 
-class OrderViewSet(CreateModelMixin, ListModelMixin, GenericViewSet):
+class OrderViewSet(CreateModelMixin, GenericViewSet):
     """
     ## Example:
     ```
