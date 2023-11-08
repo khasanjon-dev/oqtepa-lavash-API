@@ -17,6 +17,7 @@ from users.models.addition import Basket
 class ProductViewSet(ListModelMixin, GenericViewSet):
     """
     category id yuboriladi va shu categoriyaga tegishli barcha productlar qaytadi id yuborilmasa barcha productlar listi qaytadi
+
     """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
