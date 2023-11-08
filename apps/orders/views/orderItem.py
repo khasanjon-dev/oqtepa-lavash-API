@@ -12,12 +12,12 @@ class OrderItemViewSet(CreateModelMixin, GenericViewSet):
     serializer_class = OrderItemSerializer
     permission_classes = (IsAuthenticated,)
 
-    @action(methods=['get'], detail=True)
-    def orders(self, request):
-        """
-        ```
-        order lar listini olish uchun
-        ```
-        """
-        orders = request.user.order_set
-        orders_ids = orders.values_list('order', flat=True)
+    # @action(methods=['get'], detail=True)
+    # def orders(self, request):
+    #     """
+    #     ```
+    #     order lar listini olish uchun
+    #     ```
+    #     """
+    #     orders = request.user.order_set
+    #     orders_ids = orders.values_list('order', flat=True)
