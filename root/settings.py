@@ -111,6 +111,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost",
     "http://oqtepalavash-api.khasanjon.me",
     "https://oqtepalavash-api.khasanjon.me",
+    "http://oqtepalavash.khasanjon.me",
+    "https://oqtepalavash.khasanjon.me",
     "http://localhost:5173",
 ]
 CORS_ORIGIN_ALLOW_ALL = True
