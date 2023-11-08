@@ -135,7 +135,6 @@ CORS_ALLOW_HEADERS = default_headers + (
     'Referer',
     'x-requested-with',
     'origin',
-
 )
 
 LOCATION_REDIS = os.getenv('REDIS_URL') + '/1'
