@@ -29,8 +29,7 @@ Auth qismi parol va username emas balki telefon raqam va unga keluvchi kod orqal
 * Django
 * DjangoRestFramework
 * Redis
-* Postgres
-* Docker
+* SQLite
 ## Some API Docs 
 
 ### Telefon raqamga sms (code) yuborish 
