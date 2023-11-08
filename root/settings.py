@@ -106,15 +106,8 @@ AUTH_USER_MODEL = 'users.User'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost",
-    "http://simyogoch.uz",
-    "http://api.simyogoch.uz",
-    "https://simyogoch.uz",
-    "https://api.simyogoch.uz",
-    "http://api.simyogoch.uz",
-    "http://localhost:8080",
-    "http://localhost:8000",
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    "http://oqtepalavash-api.khasanjon.me",
+    "https://oqtepalavash-api.khasanjon.me",
     "http://localhost:5173",
 ]
 
