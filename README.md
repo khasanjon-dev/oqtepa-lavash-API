@@ -22,7 +22,7 @@ Auth qismi parol va username emas balki telefon raqam va unga keluvchi kod orqal
 
 <p>
   <a>
-    <img src="https://skillicons.dev/icons?i=python,django,docker,postgres,redis, Postman" />
+    <img src="https://skillicons.dev/icons?i=python,django,sqlite,redis, Postman" />
   </a>
 </p>
 
