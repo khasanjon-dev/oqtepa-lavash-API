@@ -15,6 +15,9 @@ class OrderItemViewSet(CreateModelMixin, GenericViewSet):
 
     @action(methods=['get'], detail=False)
     def order(self, request):
+        """
+        yaratilgan orderlar listini olish
+        """
         queryset = OrderItem.objects.filter(order__customer=request.user)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
