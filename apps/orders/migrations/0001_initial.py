@@ -27,6 +27,9 @@ class Migration(migrations.Migration):
                                                to=settings.AUTH_USER_MODEL)),
                 ('delivery_price', models.IntegerField()),
                 ('total_price', models.IntegerField()),
+                ('status', models.CharField(
+                    choices=[('pending', 'Pending'), ('completed', 'Completed'), ('cancel', 'Cancel'),
+                             ('shipped', 'Shipped')], default=10, max_length=20)),
             ],
         ),
         migrations.CreateModel(
