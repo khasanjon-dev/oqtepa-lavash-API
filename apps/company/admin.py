@@ -1,7 +1,7 @@
+from company.models import (About, Branch, Location, Phone, Region, Settings,
+                            Social)
 from django.contrib import admin
 from django.utils.html import format_html
-
-from company.models import Settings, About, Phone, Social, Branch, Location, Region
 
 
 @admin.register(Settings)

@@ -1,7 +1,8 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import PermissionsMixin
-from django.db.models import CharField, DateField, DateTimeField, EmailField, BooleanField
+from django.db.models import (BooleanField, CharField, DateField,
+                              DateTimeField, EmailField)
 
 
 class CustomUserManager(BaseUserManager):

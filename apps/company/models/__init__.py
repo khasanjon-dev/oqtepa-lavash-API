@@ -1,2 +1,2 @@
-from .company import Settings, About, Phone, Social
+from .company import About, Phone, Settings, Social
 from .place import Branch, Location, Region

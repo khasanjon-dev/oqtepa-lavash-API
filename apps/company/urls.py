@@ -1,7 +1,7 @@
+from company.views import (AboutListAPIView, LocationListAPIView,
+                           PhoneListAPIView, RegionListAPIView,
+                           SettingsListAPIView, SocialListAPIView)
 from django.urls import path
-
-from company.views import AboutListAPIView, PhoneListAPIView, SocialListAPIView, SettingsListAPIView, \
-    LocationListAPIView, RegionListAPIView
 
 urlpatterns = [
     path('about/', AboutListAPIView.as_view(), name='about'),

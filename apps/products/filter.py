@@ -1,5 +1,4 @@
 from django_filters import FilterSet, NumberFilter
-
 from products.models import Product
 
 

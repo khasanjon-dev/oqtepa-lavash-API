@@ -1,8 +1,7 @@
 from typing import TypeVar
 
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import AbstractBaseUser
-from django.contrib.auth.models import update_last_login
+from django.contrib.auth.models import AbstractBaseUser, update_last_login
 from django.core.cache import cache
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
@@ -11,7 +10,6 @@ from rest_framework.fields import IntegerField
 from rest_framework_simplejwt.models import TokenUser
 from rest_framework_simplejwt.settings import api_settings
 from rest_framework_simplejwt.tokens import RefreshToken
-
 from users.models import User
 from utils.validations import is_phone_number
 

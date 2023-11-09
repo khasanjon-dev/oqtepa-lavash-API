@@ -1,4 +1,4 @@
-from django.db.models import Model, ImageField, CharField
+from django.db.models import CharField, ImageField, Model
 
 
 class Category(Model):

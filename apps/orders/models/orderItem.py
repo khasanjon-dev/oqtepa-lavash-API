@@ -1,5 +1,4 @@
-from django.db.models import Model, ForeignKey, CASCADE, IntegerField
-
+from django.db.models import CASCADE, ForeignKey, IntegerField, Model
 from orders.models import Order
 from products.models import Product
 

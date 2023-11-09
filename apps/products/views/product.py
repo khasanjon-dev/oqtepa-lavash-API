@@ -1,15 +1,15 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import status
-from rest_framework.decorators import action
-from rest_framework.mixins import ListModelMixin
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.viewsets import GenericViewSet
-
 from products.filter import ProductFilterSet
 from products.models import Product
 from products.serializers import ProductSerializer
 from products.serializers.product import NoneSerializer
+from rest_framework import status
+from rest_framework.decorators import action
+from rest_framework.mixins import ListModelMixin
+from rest_framework.permissions import (IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
+from rest_framework.response import Response
+from rest_framework.viewsets import GenericViewSet
 from users.models import Favorite
 from users.models.addition import Basket
 

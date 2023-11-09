@@ -1,4 +1,5 @@
-from django.db.models import Model, CharField, TimeField, FloatField, OneToOneField, CASCADE
+from django.db.models import (CASCADE, CharField, FloatField, Model,
+                              OneToOneField, TimeField)
 
 
 class Branch(Model):

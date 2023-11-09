@@ -1,6 +1,5 @@
-from rest_framework.serializers import ModelSerializer, Serializer
-
 from products.models import Product
+from rest_framework.serializers import ModelSerializer, Serializer
 from users.models import Favorite
 
 

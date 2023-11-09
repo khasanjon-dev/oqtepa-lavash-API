@@ -1,6 +1,6 @@
+from company.models import (About, Branch, Location, Phone, Region, Settings,
+                            Social)
 from rest_framework.serializers import ModelSerializer
-
-from company.models import About, Phone, Social, Settings, Branch, Location, Region
 
 
 class AboutModelSerializer(ModelSerializer):

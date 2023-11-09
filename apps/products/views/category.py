@@ -1,7 +1,6 @@
-from rest_framework.generics import ListAPIView
-
 from products.models import Category
 from products.serializers import CategorySerializer
+from rest_framework.generics import ListAPIView
 
 
 class CategoryListAPIView(ListAPIView):

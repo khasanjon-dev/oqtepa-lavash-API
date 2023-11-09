@@ -1,4 +1,5 @@
-from django.db.models import Model, FileField, ImageField, CharField, TextField, IntegerField
+from django.db.models import (CharField, FileField, ImageField, IntegerField,
+                              Model, TextField)
 
 
 class Settings(Model):

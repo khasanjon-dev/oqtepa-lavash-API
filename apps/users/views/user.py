@@ -1,11 +1,12 @@
 from rest_framework import status
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny, IsAuthenticated
+from rest_framework.permissions import (AllowAny, IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
-
 from users.models import User
-from users.serializers import UserModelSerializer, CodeCheckSerializer, RegisterSerializer
+from users.serializers import (CodeCheckSerializer, RegisterSerializer,
+                               UserModelSerializer)
 from users.serializers.register import PhoneSerializer
 from users.serializers.user import UserProfileSerializer, UserSerializer
 from utils.send_code import send_code_phone

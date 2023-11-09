@@ -1,8 +1,9 @@
+from company.models import About, Location, Phone, Region, Settings, Social
+from company.serializers import (AboutModelSerializer, LocationModelSerializer,
+                                 PhoneModelSerializer, RegionModelSerializer,
+                                 SettingsModelSerializer,
+                                 SocialModelSerializer)
 from rest_framework.generics import ListAPIView
-
-from company.models import About, Phone, Social, Settings, Location, Region
-from company.serializers import AboutModelSerializer, PhoneModelSerializer, SocialModelSerializer, \
-    SettingsModelSerializer, LocationModelSerializer, RegionModelSerializer
 
 
 class AboutListAPIView(ListAPIView):

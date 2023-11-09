@@ -1,7 +1,6 @@
-from django.contrib.admin import register, ModelAdmin
+from django.contrib.admin import ModelAdmin, register
 from django.utils.html import format_html
-
-from products.models import Product, Category
+from products.models import Category, Product
 
 
 @register(Product)
