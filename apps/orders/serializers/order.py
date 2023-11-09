@@ -8,4 +8,13 @@ class OrderSerializer(ModelSerializer):
 
     class Meta:
         model = Order
-        fields = '__all__'
+        fields = (
+            'id',
+            'address',
+            'delivery_price',
+            'total_price',
+            'created_date',
+            'status',
+            'reception_type',
+            'customer'
+        )

@@ -7,7 +7,7 @@ class OrderItem(Model):
     quantity = IntegerField()
     price = IntegerField()
     # relationships
-    order = ForeignKey(Order, CASCADE)
+    order = ForeignKey(Order, CASCADE, 'order_items')
     product = ForeignKey(Product, CASCADE)
 
     def __str__(self):
