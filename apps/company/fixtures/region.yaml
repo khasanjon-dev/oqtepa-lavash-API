@@ -3,8 +3,6 @@
   fields:
     name: "Tashkent"
 
-
-
 - model: company.region
   pk: 2
   fields:
@@ -14,8 +12,6 @@
   pk: 3
   fields:
     name: "Namangan"
-
-
 
 - model: company.region
   pk: 4
@@ -27,8 +23,6 @@
   fields:
     name: "Andijon"
 
-
-
 - model: company.region
   pk: 6
   fields:
@@ -38,8 +32,6 @@
   pk: 7
   fields:
     name: "Samarqand"
-
-
 
 - model: company.region
   pk: 8
