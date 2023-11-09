@@ -12,11 +12,18 @@ class Order(Model):
         CASH = 'cash', 'Cash'
         CLICK = 'click', 'Click'
 
+    class Status(TextChoices):
+        PENDING = 'pending', 'Pending'
+        COMPLETED = 'completed', 'Completed'
+        CANCEL = 'cancel', 'Cancel'
+        SHIPPED = 'shipped', 'Shipped'
+
     address = TextField()
     delivery_price = IntegerField()
     total_price = IntegerField()
     created_date = DateTimeField(auto_now_add=True)
     # choices
+    status = CharField(max_length=20, choices=Status.choices)
     payment_method = CharField(max_length=5, choices=PaymentType.choices)
     reception_type = CharField(max_length=8, choices=ReceptionType.choices)
     # relationships

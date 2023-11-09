@@ -7,7 +7,6 @@ import users.models.user
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -31,8 +30,13 @@ class Migration(migrations.Migration):
                 ('is_superuser', models.BooleanField(default=False)),
                 ('updated_at', models.DateTimeField(auto_now=True, null=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('groups', models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.group', verbose_name='groups')),
-                ('user_permissions', models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.permission', verbose_name='user permissions')),
+                ('groups', models.ManyToManyField(blank=True,
+                                                  help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
+                                                  related_name='user_set', related_query_name='user', to='auth.group',
+                                                  verbose_name='groups')),
+                ('user_permissions', models.ManyToManyField(blank=True, help_text='Specific permissions for this user.',
+                                                            related_name='user_set', related_query_name='user',
+                                                            to='auth.permission', verbose_name='user permissions')),
             ],
             options={
                 'abstract': False,
@@ -45,8 +49,10 @@ class Migration(migrations.Migration):
             name='Favorite',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='favorites', to=settings.AUTH_USER_MODEL)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='favorites', to='products.product')),
+                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='favorites',
+                                               to=settings.AUTH_USER_MODEL)),
+                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='favorites',
+                                              to='products.product')),
             ],
             options={
                 'unique_together': {('customer', 'product')},
@@ -57,8 +63,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('quantity', models.IntegerField(default=1)),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='basket', to=settings.AUTH_USER_MODEL)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='basket', to='products.product')),
+                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='basket',
+                                               to=settings.AUTH_USER_MODEL)),
+                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='basket',
+                                              to='products.product')),
             ],
             options={
                 'unique_together': {('customer', 'product')},
