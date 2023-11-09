@@ -1,0 +1,48 @@
+- model: company.region
+  pk: 1
+  fields:
+    name: "Tashkent"
+
+
+
+- model: company.region
+  pk: 2
+  fields:
+    name: "Nukus"
+
+- model: company.region
+  pk: 3
+  fields:
+    name: "Namangan"
+
+
+
+- model: company.region
+  pk: 4
+  fields:
+    name: "Qo'qon"
+
+- model: company.region
+  pk: 5
+  fields:
+    name: "Andijon"
+
+
+
+- model: company.region
+  pk: 6
+  fields:
+    name: "Farg'ona"
+
+- model: company.region
+  pk: 7
+  fields:
+    name: "Samarqand"
+
+
+
+- model: company.region
+  pk: 8
+  fields:
+    name: "G'azalkent"
+
