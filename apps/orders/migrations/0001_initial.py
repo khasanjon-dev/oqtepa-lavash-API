@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('total_price', models.IntegerField()),
                 ('status', models.CharField(
                     choices=[('pending', 'Pending'), ('completed', 'Completed'), ('cancel', 'Cancel'),
-                             ('shipped', 'Shipped')], default=10, max_length=20)),
+                             ('shipped', 'Shipped')], max_length=20)),
             ],
         ),
         migrations.CreateModel(
