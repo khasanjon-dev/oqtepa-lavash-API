@@ -2,7 +2,6 @@ from django.db.models import CASCADE, ForeignKey, IntegerField, Model
 
 from orders.models import Order
 from products.models import Product
-from users.models import User
 
 
 class OrderItem(Model):
