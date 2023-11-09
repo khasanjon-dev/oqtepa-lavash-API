@@ -12,6 +12,7 @@ class Order(Model):
         CASH = 'cash', 'Cash'
         CLICK = 'click', 'Click'
 
+
     class Status(TextChoices):
         PENDING = 'pending', 'Pending'
         COMPLETED = 'completed', 'Completed'
