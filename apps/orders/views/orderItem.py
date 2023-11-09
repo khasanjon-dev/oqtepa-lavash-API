@@ -1,14 +1,12 @@
-from rest_framework.decorators import action
-from rest_framework.mixins import CreateModelMixin, ListModelMixin
+from rest_framework.mixins import CreateModelMixin
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from orders.models import OrderItem
 from orders.serializers.orderItem import OrderItemSerializer
 
 
-class OrderItemViewSet(CreateModelMixin, ListModelMixin, GenericViewSet):
+class OrderItemViewSet(CreateModelMixin, GenericViewSet):
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
     permission_classes = (IsAuthenticated,)
