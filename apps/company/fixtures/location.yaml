@@ -1,0 +1,29 @@
+- model: company.location
+  pk: 1
+  fields:
+    latitude: 41.22293673191534
+    longitude: 69.20783806620787
+    branch_id: 1
+
+
+- model: company.location
+  pk: 2
+  fields:
+    latitude: 41.35264111762934
+    longitude: 69.38698802573741
+    branch_id: 2
+
+- model: company.location
+  pk: 3
+  fields:
+    latitude: 41.212745422593606
+    longitude: 69.2288399
+    branch_id: 3
+
+
+- model: company.location
+  pk: 4
+  fields:
+    latitude: 41.222321895327816
+    longitude: 69.221833
+    branch_id: 4

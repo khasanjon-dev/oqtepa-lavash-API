@@ -1,6 +1,7 @@
-from orders.models import Order
 from rest_framework.fields import CurrentUserDefault, HiddenField
 from rest_framework.serializers import ModelSerializer
+
+from orders.models import Order
 
 
 class OrderSerializer(ModelSerializer):
@@ -16,5 +17,5 @@ class OrderSerializer(ModelSerializer):
             'created_date',
             'status',
             'reception_type',
-            'customer'
+            'customer',
         )

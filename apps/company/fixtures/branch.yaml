@@ -1,0 +1,40 @@
+- model: company.branch
+  pk: 1
+  fields:
+    name: "Golden Life"
+    phone: "+998781500030"
+    open_week: "Dush"
+    close_week: "Yak"
+    open_time: "10:00:00"
+    closing_time: "22:00:00"
+
+
+- model: company.branch
+  pk: 2
+  fields:
+    name: "TTZ"
+    phone: "+998781500030"
+    open_week: "Dush"
+    close_week: "Yak"
+    open_time: "10:00:00"
+    closing_time: "02:40:00"
+- model: company.branch
+  pk: 3
+  fields:
+    name: "Sergeli 2"
+    phone: "+998781500030"
+    open_week: "Dush"
+    close_week: "Yak"
+    open_time: "10:00:00"
+    closing_time: "02:40:00"
+
+
+- model: company.branch
+  pk: 4
+  fields:
+    name: "Sergeli 1"
+    phone: "+998781500030"
+    open_week: "Dush"
+    close_week: "Yak"
+    open_time: "10:00:00"
+    closing_time: "02:40:00"

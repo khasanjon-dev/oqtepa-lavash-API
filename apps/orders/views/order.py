@@ -1,9 +1,11 @@
-from orders.models import Order
-from orders.serializers.order import OrderSerializer
 from rest_framework.decorators import action
 from rest_framework.mixins import CreateModelMixin
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
+
+from orders.models import Order
+from orders.serializers.order import OrderSerializer
 
 
 class OrderViewSet(CreateModelMixin, GenericViewSet):
@@ -23,7 +25,7 @@ class OrderViewSet(CreateModelMixin, GenericViewSet):
     serializer_class = OrderSerializer
     permission_classes = (IsAuthenticated,)
 
-    @action(methods=['get'], detail=False)
+    @action(methods=['get'], detail=False, serializer_class=OrderSerializer)
     def orders(self, request):
         """
         ```
@@ -31,4 +33,14 @@ class OrderViewSet(CreateModelMixin, GenericViewSet):
         ```
         """
         orders = request.user.orders
-        pass
+
+        order_ids = orders.values_list('id', flat=True)
+        query = self.get_queryset()
+        queryset = query.filter(id__in=order_ids)
+
+        # page = self.paginate_queryset(queryset)
+        # if page is not None:
+        #     serializer = self.get_serializer(page, many=True)
+        #     return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
