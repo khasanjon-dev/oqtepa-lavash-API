@@ -1,8 +1,7 @@
-from rest_framework.fields import CurrentUserDefault, HiddenField
-from rest_framework.serializers import ModelSerializer
-
 from orders.models import Order
 from orders.serializers.orderItem import OrderItemsModelSerializer
+from rest_framework.fields import CurrentUserDefault, HiddenField
+from rest_framework.serializers import ModelSerializer
 
 
 class OrderSerializer(ModelSerializer):
