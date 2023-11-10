@@ -11,6 +11,7 @@ from orders.utils.pagination import CustomPageNumberPagination
 
 class OrderViewSet(CreateModelMixin, GenericViewSet):
     """
+    Order yaratish uchun
     ## Example:
     ```
     {
