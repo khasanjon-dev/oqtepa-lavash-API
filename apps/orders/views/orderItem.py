@@ -9,7 +9,7 @@ from rest_framework.viewsets import GenericViewSet
 
 class OrderItemViewSet(CreateModelMixin, GenericViewSet):
     """
-    ### Order yaratish uchun
+    ### Order-Item Productlarni yaratish uchun
     ## Example:
     ```
     {
