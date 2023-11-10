@@ -10,6 +10,7 @@ from orders.serializers.orderItem import OrderItemSerializer
 
 class OrderItemViewSet(CreateModelMixin, GenericViewSet):
     """
+    # bundan avval order yaratiladi va undan qaytgan order id order field ga yoziladi
     ### Order-Item Productlarni yaratish uchun
     ## Example:
     ```
@@ -28,7 +29,7 @@ class OrderItemViewSet(CreateModelMixin, GenericViewSet):
     @action(methods=['get'], detail=False)
     def order(self, request):
         """
-        ## yaratilgan orderlar listini olish
+        ## Userga tegishli order-item larni olish uchun orderlar listini olish
         """
         queryset = OrderItem.objects.filter(order__customer=request.user)
         serializer = self.get_serializer(queryset, many=True)
