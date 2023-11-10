@@ -10,7 +10,7 @@ from orders.serializers.orderItem import OrderItemSerializer
 
 class OrderItemViewSet(CreateModelMixin, GenericViewSet):
     """
-    # bundan avval order yaratiladi va undan qaytgan order id order field ga yoziladi
+    ## bundan avval order yaratiladi va undan qaytgan order id order field ga yoziladi
     ### Order-Item Productlarni yaratish uchun
     ## Example:
     ```
