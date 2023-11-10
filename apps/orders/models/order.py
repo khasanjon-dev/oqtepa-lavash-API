@@ -1,5 +1,6 @@
 from django.db.models import (CASCADE, CharField, DateTimeField, ForeignKey,
                               IntegerField, Model, TextChoices, TextField)
+
 from users.models import User
 
 
@@ -11,7 +12,6 @@ class Order(Model):
     class PaymentType(TextChoices):
         CASH = 'cash', 'Cash'
         CLICK = 'click', 'Click'
-
 
     class Status(TextChoices):
         PENDING = 'pending', 'Pending'
