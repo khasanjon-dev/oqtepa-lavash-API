@@ -14,6 +14,7 @@ class Order(Model):
         CLICK = 'click', 'Click'
 
 
+
     class Status(TextChoices):
         PENDING = 'pending', 'Pending'
         COMPLETED = 'completed', 'Completed'
