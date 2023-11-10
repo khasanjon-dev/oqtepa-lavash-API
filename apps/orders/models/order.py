@@ -18,7 +18,6 @@ class Order(Model):
         CANCEL = 'cancel', 'Cancel'
         SHIPPED = 'shipped', 'Shipped'
 
-
     address = TextField()
     delivery_price = IntegerField()
     total_price = IntegerField()
