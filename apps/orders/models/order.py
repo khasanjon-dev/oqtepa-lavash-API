@@ -1,6 +1,5 @@
 from django.db.models import (CASCADE, CharField, DateTimeField, ForeignKey,
                               IntegerField, Model, TextChoices, TextField)
-
 from users.models import User
 
 
