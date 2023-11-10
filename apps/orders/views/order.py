@@ -15,12 +15,13 @@ class OrderViewSet(CreateModelMixin, GenericViewSet):
     ## Example:
     ```
     {
-        "address": "Toshkent, Chilonzor 6",
-        "delivery_price": 10000,
-        "total_price": 100000,
-        "payment_method": "cash" or "click",
-        "reception_type": "delivery" or "pickup"
-    }
+  "address": "Toshken Chilonzor 6",
+  "delivery_price": 10000,
+  "total_price": 50000,
+  "status": "pending",
+  "payment_method": "cash",
+  "reception_type": "delivery"
+}
     ```
     """
     queryset = Order.objects.all()
