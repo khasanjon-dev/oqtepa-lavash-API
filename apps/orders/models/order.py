@@ -31,3 +31,4 @@ class Order(Model):
 
     def __str__(self):
         return self.customer.name + ' ' + self.address
+
