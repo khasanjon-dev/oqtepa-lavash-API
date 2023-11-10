@@ -8,6 +8,20 @@ from rest_framework.viewsets import GenericViewSet
 
 
 class OrderItemViewSet(CreateModelMixin, GenericViewSet):
+    """
+    ### Order yaratish uchun
+    ## Example:
+    ```
+    {
+        "address": "Toshken Chilonzor 6",
+        "delivery_price": 10000,
+        "total_price": 50000,
+        "status": "pending",
+        "payment_method": "cash",
+        "reception_type": "delivery"
+    }
+    ```
+    """
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
     permission_classes = (IsAuthenticated,)
