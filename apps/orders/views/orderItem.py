@@ -12,14 +12,12 @@ class OrderItemViewSet(CreateModelMixin, GenericViewSet):
     ### Order-Item Productlarni yaratish uchun
     ## Example:
     ```
-    {
-        "address": "Toshken Chilonzor 6",
-        "delivery_price": 10000,
-        "total_price": 50000,
-        "status": "pending",
-        "payment_method": "cash",
-        "reception_type": "delivery"
-    }
+{
+  "quantity": 1,
+  "price": 10000,
+  "order": 5,
+  "product": 1
+}
     ```
     """
     queryset = OrderItem.objects.all()
