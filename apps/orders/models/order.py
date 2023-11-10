@@ -29,6 +29,5 @@ class Order(Model):
     # relationships
     customer = ForeignKey(User, CASCADE, 'orders')
 
-
     def __str__(self):
         return self.status + ' ' + self.address
