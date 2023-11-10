@@ -30,4 +30,4 @@ class Order(Model):
     customer = ForeignKey(User, CASCADE, 'orders')
 
     def __str__(self):
-        return self.customer.name + ' ' + self.address
+        return self.status + ' ' + self.address
