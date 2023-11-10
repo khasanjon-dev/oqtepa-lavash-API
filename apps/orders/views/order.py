@@ -11,17 +11,17 @@ from orders.utils.pagination import CustomPageNumberPagination
 
 class OrderViewSet(CreateModelMixin, GenericViewSet):
     """
-    Order yaratish uchun
+    ### Order yaratish uchun
     ## Example:
     ```
     {
-  "address": "Toshken Chilonzor 6",
-  "delivery_price": 10000,
-  "total_price": 50000,
-  "status": "pending",
-  "payment_method": "cash",
-  "reception_type": "delivery"
-}
+        "address": "Toshken Chilonzor 6",
+        "delivery_price": 10000,
+        "total_price": 50000,
+        "status": "pending",
+        "payment_method": "cash",
+        "reception_type": "delivery"
+    }
     ```
     """
     queryset = Order.objects.all()
