@@ -9,7 +9,6 @@ class Product(Model):
     price = IntegerField()
     # file
     image = ImageField(upload_to='products/images')
-
     # relationships
     category = ForeignKey(Category, CASCADE, 'products')
 
