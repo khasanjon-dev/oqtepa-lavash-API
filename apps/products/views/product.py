@@ -1,8 +1,4 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from products.filter import ProductFilterSet
-from products.models import Product
-from products.serializers import ProductSerializer
-from products.serializers.product import NoneSerializer
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.mixins import ListModelMixin
@@ -10,6 +6,11 @@ from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
+
+from products.filter import ProductFilterSet
+from products.models import Product
+from products.serializers import ProductSerializer
+from products.serializers.product import NoneSerializer
 from users.models import Favorite
 from users.models.addition import Basket
 
@@ -96,22 +97,41 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             detail = {'message': "Savatga qo'shishda xatolik!"}
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
-    @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
-            url_path='delete-basket')
-    def delete_basket(self, request, pk):
+    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
+            url_path='basket')
+    def basket(self, request, pk):
         """
-        savatdan  o'chirish uchun
+        savatga qo'shish uchun
         """
         try:
-            Basket.objects.filter(customer=request.user, product_id=pk).delete()
-            return Response({'success': True}, 204)
+            basket, created = Basket.objects.get_or_create(customer=request.user, product_id=pk)
+            detail = {'success': True}
+            if created:
+                return Response(detail, status.HTTP_201_CREATED)
+            detail['message'] = 'Update basket!'
+            basket.quantity += 1
+            return Response(detail)
         except Exception as e:
             print(e)
-            detail = {'message': "Savatdan o'chirishda xatolik!"}
+            detail = {'message': "Savatga qo'shishda xatolik!"}
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
-    @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,), serializer_class=ProductSerializer,
-            url_path='basket')
+    # @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
+    #         url_path='delete-basket')
+    # def delete_basket(self, request, pk):
+    #     """
+    #     savatdan  o'chirish uchun
+    #     """
+    #     try:
+    #         Basket.objects.filter(customer=request.user, product_id=pk).delete()
+    #         return Response({'success': True}, 204)
+    #     except Exception as e:
+    #         print(e)
+    #         detail = {'message': "Savatdan o'chirishda xatolik!"}
+    #         return Response(detail, status.HTTP_400_BAD_REQUEST)
+    #
+    # @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,), serializer_class=ProductSerializer,
+    #         url_path='basket')
     def baskets(self, request):
         """
         ```
