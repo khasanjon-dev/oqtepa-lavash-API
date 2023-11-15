@@ -1,6 +1,7 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.decorators import action
+from rest_framework.generics import get_object_or_404
 from rest_framework.mixins import ListModelMixin
 from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
@@ -128,7 +129,11 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         ```
         """
         try:
-            Basket.objects.filter(customer=request.user, product_id=pk).delete()
+            basket = get_object_or_404(Basket, customer=request.user, product_id=pk)
+            if basket.quantity - 1 == 0:
+                basket.delete()
+            else:
+                basket.quantity -= 1
             return Response({'success': True}, 204)
         except Exception as e:
             print(e)
