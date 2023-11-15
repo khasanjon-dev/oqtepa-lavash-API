@@ -108,11 +108,17 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         """
         try:
             basket, created = Basket.objects.get_or_create(customer=request.user, product_id=pk)
-            detail = {'success': True}
+            detail = {
+                'success': True,
+                'quantity': basket.quantity,
+                'product_id': basket.product_id
+            }
             if created:
                 return Response(detail, status.HTTP_201_CREATED)
             detail['message'] = 'Update basket!'
             basket.quantity += 1
+            basket.save()
+            detail['quantity'] = basket.quantity
             return Response(detail)
         except Exception as e:
             print(e)
@@ -130,14 +136,31 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         """
         try:
             basket = get_object_or_404(Basket, customer=request.user, product_id=pk)
+            detail = {'product_id': basket.product_id}
             if basket.quantity - 1 == 0:
                 basket.delete()
+                detail.update(
+                    {
+                        'success': True,
+                        'quantity': 0
+                    }
+                )
+                return Response(detail, status.HTTP_204_NO_CONTENT)
             else:
                 basket.quantity -= 1
-            return Response({'success': True}, 204)
+                basket.save()
+            detail.update(
+                {
+                    'success': True,
+                    'quantity': basket.quantity
+                }
+            )
+            return Response(detail, status.HTTP_204_NO_CONTENT)
         except Exception as e:
-            print(e)
-            detail = {'message': "Savatdan o'chirishda xatolik!"}
+            detail = {
+                'message': "Savatdan o'chirishda xatolik!",
+                'exception': f'{e}'
+            }
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
     @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,), serializer_class=ProductSerializer,
