@@ -79,23 +79,23 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
-            url_path='add-basket')
-    def add_basket(self, request, pk):
-        """
-        savatga qo'shish uchun
-        """
-        try:
-            basket, created = Basket.objects.get_or_create(customer=request.user, product_id=pk)
-            detail = {'success': True}
-            if created:
-                return Response(detail, status.HTTP_201_CREATED)
-            detail['message'] = 'Already added!'
-            return Response(detail)
-        except Exception as e:
-            print(e)
-            detail = {'message': "Savatga qo'shishda xatolik!"}
-            return Response(detail, status.HTTP_400_BAD_REQUEST)
+    # @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
+    #         url_path='add-basket')
+    # def add_basket(self, request, pk):
+    #     """
+    #     savatga qo'shish uchun
+    #     """
+    #     try:
+    #         basket, created = Basket.objects.get_or_create(customer=request.user, product_id=pk)
+    #         detail = {'success': True}
+    #         if created:
+    #             return Response(detail, status.HTTP_201_CREATED)
+    #         detail['message'] = 'Already added!'
+    #         return Response(detail)
+    #     except Exception as e:
+    #         print(e)
+    #         detail = {'message': "Savatga qo'shishda xatolik!"}
+    #         return Response(detail, status.HTTP_400_BAD_REQUEST)
 
     @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer)
     def basket(self, request, pk):
@@ -117,22 +117,22 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             detail = {'message': "Savatga qo'shishda xatolik!"}
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
-    # @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
-    #         url_path='delete-basket')
-    # def delete_basket(self, request, pk):
-    #     """
-    #     savatdan  o'chirish uchun
-    #     """
-    #     try:
-    #         Basket.objects.filter(customer=request.user, product_id=pk).delete()
-    #         return Response({'success': True}, 204)
-    #     except Exception as e:
-    #         print(e)
-    #         detail = {'message': "Savatdan o'chirishda xatolik!"}
-    #         return Response(detail, status.HTTP_400_BAD_REQUEST)
-    #
-    # @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,), serializer_class=ProductSerializer,
-    #         url_path='basket')
+    @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
+            url_path='delete-basket')
+    def delete_basket(self, request, pk):
+        """
+        savatdan  o'chirish uchun
+        """
+        try:
+            Basket.objects.filter(customer=request.user, product_id=pk).delete()
+            return Response({'success': True}, 204)
+        except Exception as e:
+            print(e)
+            detail = {'message': "Savatdan o'chirishda xatolik!"}
+            return Response(detail, status.HTTP_400_BAD_REQUEST)
+
+    @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,), serializer_class=ProductSerializer,
+            url_path='basket')
     def baskets(self, request):
         """
         ```
