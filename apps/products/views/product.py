@@ -97,11 +97,12 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             detail = {'message': "Savatga qo'shishda xatolik!"}
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
-    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
-            url_path='basket')
+    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer)
     def basket(self, request, pk):
         """
-        savatga qo'shish uchun
+        ```
+        savatga qo'shish va update qilish uchun
+        ```
         """
         try:
             basket, created = Basket.objects.get_or_create(customer=request.user, product_id=pk)
