@@ -102,6 +102,7 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         """
         ```
         savatga qo'shish va update qilish uchun
+
         ```
         """
         try:
@@ -121,7 +122,10 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             url_path='delete-basket')
     def delete_basket(self, request, pk):
         """
+        ```
         savatdan  o'chirish uchun
+
+        ```
         """
         try:
             Basket.objects.filter(customer=request.user, product_id=pk).delete()
