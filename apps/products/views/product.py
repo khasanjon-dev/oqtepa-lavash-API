@@ -111,7 +111,8 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             detail = {
                 'success': True,
                 'quantity': basket.quantity,
-                'product_id': basket.product_id
+                'product_id': basket.product_id,
+                'message': 'Add basket!'
             }
             if created:
                 return Response(detail, status.HTTP_201_CREATED)
