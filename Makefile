@@ -7,6 +7,5 @@ mig:
 	python3 manage.py migrate
 clean:
 	isort .
-
 add:
 	poetry export --without-hashes --format=requirements.txt > requirements.txt
