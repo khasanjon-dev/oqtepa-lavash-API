@@ -12,12 +12,16 @@ class ProductAdmin(ModelAdmin):
     def picture(obj):
         return format_html('<img src="{}" width="50" height="50" style="border-radius:50%"'.format(obj.image.url))
 
+
 class ProductInline(TabularInline):
-    pass
+    model = Product
+    extra = 0
+
 
 @register(Category)
 class CategoryAdmin(ModelAdmin):
     list_display = ('name', 'picture')
+    inlines = (ProductInline,)
 
     @staticmethod
     def picture(obj):
