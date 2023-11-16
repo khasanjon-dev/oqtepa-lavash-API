@@ -11,7 +11,7 @@ from rest_framework.viewsets import GenericViewSet
 from products.filter import ProductFilterSet
 from products.models import Product
 from products.serializers import ProductSerializer
-from products.serializers.product import NoneSerializer
+from products.serializers.product import NoneSerializer, BasketModelSerializer
 from users.models import Favorite
 from users.models.addition import Basket
 
@@ -164,8 +164,8 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             }
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
-    @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,), serializer_class=ProductSerializer,
-            url_path='basket')
+    @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,),
+            serializer_class=BasketModelSerializer, url_path='basket')
     def baskets(self, request):
         """
         ```
@@ -173,9 +173,9 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         ```
         """
         basket = request.user.basket
-        basket_ids = basket.values_list('product', flat=True)
-        query = self.get_queryset()
-        queryset = query.filter(id__in=basket_ids)
+        # basket_ids = basket.values_list('product', flat=True)
+        queryset = basket
+        # queryset = query.filter(id__in=basket_ids)
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
