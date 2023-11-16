@@ -38,6 +38,7 @@ jobs:
           script: |
             cd /var/www/oqtepalavash/backend
             git add oqtepa
+            git commit -m "update database"
             git pull
             source venv/bin/activate
             pip install -r requirements.txt
