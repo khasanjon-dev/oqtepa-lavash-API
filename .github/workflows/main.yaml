@@ -37,7 +37,7 @@ jobs:
           key: ${{ secrets.SECRET_KEY_GITHUB }}
           script: |
             cd /var/www/oqtepalavash/backend
-            git add oqtepa
+            git add oqtepa media/*
             git commit -m "update database"
             git push
             git pull
