@@ -135,8 +135,8 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
 
         ```
         """
+        basket = get_object_or_404(Basket, customer=request.user, id=pk)
         try:
-            basket = get_object_or_404(Basket, customer=request.user, product_id=pk)
             detail = {'product_id': basket.product_id}
             if basket.quantity - 1 == 0:
                 basket.delete()
@@ -150,13 +150,13 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             else:
                 basket.quantity -= 1
                 basket.save()
-            detail.update(
-                {
-                    'success': True,
-                    'quantity': basket.quantity
-                }
-            )
-            return Response(detail, status.HTTP_204_NO_CONTENT)
+                detail.update(
+                    {
+                        'success': True,
+                        'quantity': basket.quantity
+                    }
+                )
+                return Response(detail, status.HTTP_204_NO_CONTENT)
         except Exception as e:
             detail = {
                 'message': "Savatdan o'chirishda xatolik!",
