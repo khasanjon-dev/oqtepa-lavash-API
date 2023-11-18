@@ -80,7 +80,6 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-
     @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer)
     def basket(self, request, pk):
         """
