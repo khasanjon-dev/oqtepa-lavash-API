@@ -156,7 +156,6 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         ```
         """
         basket = request.user.basket
-        # basket_ids = basket.values_list('product', flat=True)
         queryset = basket
         # queryset = query.filter(id__in=basket_ids)
         page = self.paginate_queryset(queryset)
