@@ -80,23 +80,6 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-    # @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
-    #         url_path='add-basket')
-    # def add_basket(self, request, pk):
-    #     """
-    #     savatga qo'shish uchun
-    #     """
-    #     try:
-    #         basket, created = Basket.objects.get_or_create(customer=request.user, product_id=pk)
-    #         detail = {'success': True}
-    #         if created:
-    #             return Response(detail, status.HTTP_201_CREATED)
-    #         detail['message'] = 'Already added!'
-    #         return Response(detail)
-    #     except Exception as e:
-    #         print(e)
-    #         detail = {'message': "Savatga qo'shishda xatolik!"}
-    #         return Response(detail, status.HTTP_400_BAD_REQUEST)
 
     @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer)
     def basket(self, request, pk):
