@@ -113,7 +113,7 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
     def delete_basket(self, request, pk):
         """
         ```
-        savatdan  o'chirish uchun
+        savatdan  o'chirish uchun -1 dan
 
         ```
         """
@@ -143,6 +143,29 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             detail = {
                 'message': "Savatdan o'chirishda xatolik!",
                 'exception': f'{e}'
+            }
+            return Response(detail, status.HTTP_400_BAD_REQUEST)
+
+    @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
+            url_path='remove-basket')
+    def remove_basket(self, request, pk):
+        """
+        ```
+        savatdan  o'chirish  hammasini o'chiradi
+
+        ```
+        """
+        basket = get_object_or_404(Basket, customer=request.user, id=pk)
+        try:
+            basket.delete()
+            detail = {
+                'success': True,
+            }
+            return Response(detail, status.HTTP_204_NO_CONTENT)
+        except Exception as e:
+            detail = {
+                'message': "O'chirishda xatolik!",
+                'detail': f'{e}'
             }
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
