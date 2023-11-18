@@ -157,7 +157,6 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         """
         basket = request.user.basket
         queryset = basket
-        # queryset = query.filter(id__in=basket_ids)
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
