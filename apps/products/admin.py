@@ -1,6 +1,5 @@
-from django.contrib.admin import ModelAdmin, register, TabularInline
+from django.contrib.admin import ModelAdmin, TabularInline, register
 from django.utils.html import format_html
-
 from products.models import Category, Product
 
 
