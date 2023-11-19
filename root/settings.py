@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'root.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "oqtepa",
+        "NAME": "oqtepa.sqlite3",
     }
 }
 AUTH_PASSWORD_VALIDATORS = [
