@@ -55,7 +55,10 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         """
         try:
             Favorite.objects.filter(customer=request.user, product_id=pk).delete()
-            return Response({'success': True}, 204)
+            detail = {
+                'success': True
+            }
+            return Response(detail, 204)
         except Exception as e:
             print(e)
             detail = {'message': "Sevimlilardan o'chirishda xatolik!"}
