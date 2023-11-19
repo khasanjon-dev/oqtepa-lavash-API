@@ -71,9 +71,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'root.wsgi.application'
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "oqtepa.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'oqtepa.sqlite3',
     }
 }
 AUTH_PASSWORD_VALIDATORS = [
@@ -113,6 +113,9 @@ CORS_ALLOWED_ORIGINS = [
     "https://oqtepalavash-api.khasanjon.me",
     "http://oqtepalavash.khasanjon.me",
     "https://oqtepalavash.khasanjon.me",
+    "https://localhost:8000",
+    "https://localhost:8080",
+    "https://localhost:3000",
     "http://localhost:5173",
 ]
 CORS_ORIGIN_ALLOW_ALL = True
@@ -155,7 +158,13 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
 }
 
 SIMPLE_JWT = {
