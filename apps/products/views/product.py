@@ -120,11 +120,10 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             serializer = BasketModelSerializer(basket)
             if basket.quantity - 1 == 0:
                 basket.delete()
-                return Response(serializer.data, status.HTTP_204_NO_CONTENT)
             else:
                 basket.quantity -= 1
                 basket.save()
-                return Response(serializer.data, status.HTTP_204_NO_CONTENT)
+            return Response(serializer.data, status.HTTP_204_NO_CONTENT)
         except Exception as e:
             detail = {
                 'message': "Savatdan o'chirishda xatolik!",
