@@ -1,5 +1,6 @@
-from products.models import Product
 from rest_framework.serializers import ModelSerializer, Serializer
+
+from products.models import Product
 from users.models.addition import Basket
 
 
