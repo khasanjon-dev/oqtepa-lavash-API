@@ -1,5 +1,6 @@
 from django.db.models import (CASCADE, CharField, ForeignKey, ImageField,
                               IntegerField, Model, TextField)
+
 from products.models import Category
 
 
