@@ -23,7 +23,6 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             url_path='category-product')
     def category_product(self, request, pk):
         """
-        ```
         category id yuboriladi va shu categoriyaga tegishli barcha productlar qaytadi
 
         ```
@@ -53,6 +52,8 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
     def delete_favorite(self, request, pk):
         """
         sevimlilardan o'chirish
+
+        ```
         """
         try:
             Favorite.objects.filter(customer=request.user, product_id=pk).delete()
@@ -69,8 +70,8 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             url_path='favorites')
     def favorites(self, request):
         """
-        ```
         favorite lar listini olish uchun
+
         ```
         """
         favorites = request.user.favorites
@@ -87,7 +88,6 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
     @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer)
     def basket(self, request, pk):
         """
-        ```
         savatga qo'shish va update qilish uchun
 
         ```
@@ -111,7 +111,6 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             url_path='delete-basket')
     def delete_basket(self, request, pk):
         """
-        ```
         savatdan  o'chirish uchun -1 dan
 
         ```
@@ -136,7 +135,6 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             url_path='remove-basket')
     def remove_basket(self, request, pk):
         """
-        ```
         savatdan  o'chirish  hammasini o'chiradi
 
         ```
@@ -159,7 +157,6 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             serializer_class=BasketModelSerializer, url_path='basket')
     def baskets(self, request):
         """
-        ```
         savat dagi productlar listini olish
 
         ```
