@@ -1,6 +1,6 @@
-from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.decorators import action
+from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import AllowAny
 from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
@@ -261,17 +261,10 @@ class UserViewSet(GenericViewSet):
 
         ```
         """
-        try:
-            basket = get_object_or_404(Basket, customer=request.user, id=pk)
-            serializer = BasketModelSerializer(basket)
-            basket.delete()
-            return Response(serializer.data, status.HTTP_204_NO_CONTENT)
-        except Exception as e:
-            detail = {
-                'message': "O'chirishda xatolik!",
-                'detail': f'{e}'
-            }
-            return Response(detail, status.HTTP_400_BAD_REQUEST)
+        basket = get_object_or_404(Basket, customer=request.user, id=pk)
+        serializer = BasketModelSerializer(basket)
+        basket.delete()
+        return Response(serializer.data, status.HTTP_204_NO_CONTENT)
 
     @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,),
             serializer_class=BasketModelSerializer, url_path='basket')
