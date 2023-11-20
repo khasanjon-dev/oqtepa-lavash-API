@@ -250,10 +250,7 @@ class UserViewSet(GenericViewSet):
         else:
             basket.quantity -= 1
             basket.save()
-        detail = {
-            'success': True
-        }
-        return Response(detail, status.HTTP_204_NO_CONTENT)
+        return Response(status.HTTP_204_NO_CONTENT)
 
     @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
             url_path='remove-basket')
@@ -263,12 +260,9 @@ class UserViewSet(GenericViewSet):
 
         ```
         """
-        detail = {
-            'success': True
-        }
         basket = get_object_or_404(Basket, customer=request.user, id=pk)
         basket.delete()
-        return Response(detail, status.HTTP_204_NO_CONTENT)
+        return Response(status.HTTP_204_NO_CONTENT)
 
     @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,),
             serializer_class=BasketModelSerializer, url_path='basket')
