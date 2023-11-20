@@ -71,6 +71,9 @@ class UserViewSet(GenericViewSet):
             url_path='change-phone')
     def change_phone(self, request):
         """
+        raqamni o'zgartirish uchun
+
+        ```
         ## bundan avval
         1. /send_code/ sms yuboriladi
         yangi raqam va sms code yuboriladi
@@ -100,6 +103,9 @@ class UserViewSet(GenericViewSet):
             url_path='check-code')
     def check_code(self, request):
         """
+        yuborilgan sms ni tekshirish uchun
+
+        ```
         ## bundan avval
         1. /send_code/ sms yuboriladi
         yangi raqam va sms code yuboriladi
@@ -145,6 +151,7 @@ class UserViewSet(GenericViewSet):
         serializer = self.serializer_class(request.user)
         return Response(serializer.data)
 
+    # addition actions
     # ----------------------------------------------------------------------------------------------------------
     # addition actions
 
@@ -256,7 +263,7 @@ class UserViewSet(GenericViewSet):
             url_path='remove-basket')
     def remove_basket(self, request, pk):
         """
-        savatdan  o'chirish  hammasini o'chiradi
+        savatdan o'chirish yani shu productni o'chiradi qiladi
 
         ```
         """
