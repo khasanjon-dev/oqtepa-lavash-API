@@ -268,12 +268,10 @@ class UserViewSet(GenericViewSet):
         ```
         """
         basket = get_object_or_404(Basket, customer=request.user, id=pk)
+        serializer = BasketModelSerializer(basket)
         try:
             basket.delete()
-            detail = {
-                'success': True,
-            }
-            return Response(detail, status.HTTP_204_NO_CONTENT)
+            return Response(serializer.data, status.HTTP_204_NO_CONTENT)
         except Exception as e:
             detail = {
                 'message': "O'chirishda xatolik!",
