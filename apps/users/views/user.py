@@ -7,6 +7,7 @@ from rest_framework.permissions import (IsAuthenticated,
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
+from products.models import Product
 from users.models import Favorite
 from users.models import User
 from users.models.addition import Basket
@@ -204,7 +205,7 @@ class UserViewSet(GenericViewSet):
         """
         favorites = request.user.favorites
         favorites_ids = favorites.values_list('product', flat=True)
-        query = self.get_queryset()
+        query = Product.objects.all()
         queryset = query.filter(id__in=favorites_ids)
         page = self.paginate_queryset(queryset)
         if page is not None:
