@@ -263,6 +263,9 @@ class UserViewSet(GenericViewSet):
 
         ```
         """
+        detail = {
+            'success': True
+        }
         basket = get_object_or_404(Basket, customer=request.user, id=pk)
         basket.delete()
         return Response(detail, status.HTTP_204_NO_CONTENT)
