@@ -34,6 +34,8 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
     def add_favorite(self, request, pk):
         """
         sevimlilarga qo'shish
+
+        ```
         """
         try:
             favorite, created = Favorite.objects.get_or_create(customer=request.user, product_id=pk)
