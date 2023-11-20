@@ -5,8 +5,8 @@ from rest_framework.generics import ListAPIView
 
 class CategoryListAPIView(ListAPIView):
     """
-    ```
     categoriyalar listini olish
+
     ```
     """
     queryset = Category.objects.all()
