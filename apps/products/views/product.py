@@ -1,8 +1,3 @@
-from django_filters.rest_framework import DjangoFilterBackend
-from products.filter import ProductFilterSet
-from products.models import Product
-from products.serializers import ProductSerializer
-from products.serializers.product import BasketModelSerializer, NoneSerializer
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
@@ -11,22 +6,29 @@ from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
+
+from products.models import Product
+from products.serializers import ProductSerializer
+from products.serializers.product import BasketModelSerializer, NoneSerializer
 from users.models import Favorite
 from users.models.addition import Basket
 
 
 class ProductViewSet(ListModelMixin, GenericViewSet):
-    """
-    ```
-    category id yuboriladi va shu categoriyaga tegishli barcha productlar qaytadi
-    id yuborilmasa barcha productlar listi qaytadi
-    ```
-    """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
-    filter_backends = (DjangoFilterBackend,)
-    filterset_class = ProductFilterSet
+
+    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=ProductSerializer,
+            url_path='category-product')
+    def category_product(self, request, pk):
+        """
+        ```
+        category id yuboriladi va shu categoriyaga tegishli barcha productlar qaytadi
+
+        ```
+        """
+        pass
 
     @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
             url_path='add-favorite')
@@ -99,9 +101,9 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             basket.save()
             return Response(serializer.data)
         except Exception as e:
-            print(e)
             detail = {
-                'message': "Savatga qo'shishda xatolik!"
+                'message': "Savatga qo'shishda xatolik!",
+                'exception': f'{e}'
             }
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
@@ -159,6 +161,7 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         """
         ```
         savat dagi productlar listini olish
+
         ```
         """
         basket = request.user.basket
