@@ -1,26 +1,7 @@
 from rest_framework.fields import BooleanField
-from rest_framework.serializers import ModelSerializer, Serializer
+from rest_framework.serializers import ModelSerializer
 
 from products.models import Product
-from users.models.addition import Basket
-
-
-class ProductSerializer(ModelSerializer):
-    class Meta:
-        model = Product
-        fields = ('id', 'name', 'description', 'price', 'image', 'category_id')
-
-
-class NoneSerializer(Serializer):
-    pass
-
-
-class BasketModelSerializer(ModelSerializer):
-    product = ProductSerializer(read_only=True)
-
-    class Meta:
-        model = Basket
-        fields = ('id', 'quantity', 'product')
 
 
 class ProductModelSerializer(ModelSerializer):
@@ -42,5 +23,5 @@ class ProductModelSerializer(ModelSerializer):
         rep = super().to_representation(instance)
         request = self.context['request']
         if request.user.is_authenticated:
-            rep['is_like'] = instance.basket.filter(user=request.user).exists()
+            rep['is_like'] = instance.basket.filter(customer=request.user).exists()
         return rep
