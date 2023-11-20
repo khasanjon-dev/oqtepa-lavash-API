@@ -25,6 +25,7 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         """
         ```
         category id yuboriladi va shu categoriyaga tegishli barcha productlar qaytadi
+
         ```
         """
         pass
@@ -100,9 +101,9 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
             basket.save()
             return Response(serializer.data)
         except Exception as e:
-            print(e)
             detail = {
-                'message': "Savatga qo'shishda xatolik!"
+                'message': "Savatga qo'shishda xatolik!",
+                'exception': f'{e}'
             }
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
@@ -160,6 +161,7 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
         """
         ```
         savat dagi productlar listini olish
+
         ```
         """
         basket = request.user.basket
