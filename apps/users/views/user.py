@@ -245,13 +245,12 @@ class UserViewSet(GenericViewSet):
         ```
         """
         basket = get_object_or_404(Basket, customer=request.user, id=pk)
-        serializer = BasketModelSerializer(basket)
         if basket.quantity - 1 == 0:
             basket.delete()
         else:
             basket.quantity -= 1
             basket.save()
-        return Response(serializer.data, status.HTTP_204_NO_CONTENT)
+        return Response(status.HTTP_204_NO_CONTENT)
 
     @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
             url_path='remove-basket')
@@ -262,9 +261,8 @@ class UserViewSet(GenericViewSet):
         ```
         """
         basket = get_object_or_404(Basket, customer=request.user, id=pk)
-        serializer = BasketModelSerializer(basket)
         basket.delete()
-        return Response(serializer.data, status.HTTP_204_NO_CONTENT)
+        return Response(status.HTTP_204_NO_CONTENT)
 
     @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,),
             serializer_class=BasketModelSerializer, url_path='basket')
