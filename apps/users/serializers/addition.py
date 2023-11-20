@@ -10,8 +10,8 @@ class NoneSerializer(Serializer):
 
 class ProductSerializer(ModelSerializer):
     class Meta:
-        fields = ('id', 'name', 'description', 'price', 'image', 'category_id')
         model = Product
+        fields = ('id', 'name', 'description', 'price', 'image', 'category_id')
 
 
 class BasketModelSerializer(ModelSerializer):
