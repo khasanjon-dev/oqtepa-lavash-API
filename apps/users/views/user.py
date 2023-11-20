@@ -235,7 +235,7 @@ class UserViewSet(GenericViewSet):
             }
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
-    @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
+    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
             url_path='delete-basket')
     def delete_basket(self, request, pk):
         """
