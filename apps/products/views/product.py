@@ -9,7 +9,7 @@ from rest_framework.viewsets import GenericViewSet
 
 from products.models import Product
 from products.serializers import ProductSerializer
-from products.serializers.product import BasketModelSerializer, NoneSerializer
+from products.serializers.product import BasketModelSerializer, NoneSerializer, ProductModelSerializer
 from users.models import Favorite
 from users.models.addition import Basket
 
@@ -21,7 +21,7 @@ class ProductViewSet(ListModelMixin, GenericViewSet):
     ```
     """
     queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+    serializer_class = ProductModelSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
