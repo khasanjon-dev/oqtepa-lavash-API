@@ -5,7 +5,8 @@ from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from products.models import Category
-from products.serializers import CategorySerializer, ProductSerializer
+from products.serializers.category import CategorySerializer
+from users.serializers.addition import ProductSerializer
 
 
 class CategoryViewSet(ListModelMixin, GenericViewSet):
