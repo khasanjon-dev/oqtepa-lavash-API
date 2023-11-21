@@ -180,22 +180,6 @@ class UserViewSet(GenericViewSet):
             }
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
-    @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
-            url_path='delete-favorite', filter_backends=None)
-    def delete_favorite(self, request, pk):
-        """
-        sevimlilardan o'chirish
-
-        ```
-        """
-        try:
-            Favorite.objects.filter(customer=request.user, product_id=pk).update(is_like=False)
-            return Response(status.HTTP_204_NO_CONTENT)
-        except Exception as e:
-            print(e)
-            detail = {'message': "Sevimlilardan o'chirishda xatolik!"}
-            return Response(detail, status.HTTP_400_BAD_REQUEST)
-
     @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,),
             serializer_class=ProductSerializer)
     def favorites(self, request):
