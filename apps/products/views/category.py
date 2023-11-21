@@ -6,7 +6,7 @@ from rest_framework.viewsets import GenericViewSet
 
 from products.models import Category
 from products.serializers.category import CategorySerializer
-from users.serializers.addition import ProductSerializer
+from products.serializers.product import ProductSerializerCategory
 
 
 class CategoryViewSet(ListModelMixin, GenericViewSet):
@@ -18,7 +18,7 @@ class CategoryViewSet(ListModelMixin, GenericViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-    @action(methods=['get'], detail=True, serializer_class=ProductSerializer)
+    @action(methods=['get'], detail=True, serializer_class=ProductSerializerCategory)
     def product(self, request, pk):
         """
         category id yuboriladi va shu categoriyaga tegishli barcha productlar qaytadi
