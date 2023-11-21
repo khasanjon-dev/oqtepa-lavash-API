@@ -262,8 +262,9 @@ class UserViewSet(GenericViewSet):
         ```
         """
         basket = get_object_or_404(Basket, customer=request.user, id=pk)
+        serializer = BasketModelSerializer(basket)
         basket.delete()
-        return Response(status.HTTP_204_NO_CONTENT)
+        return Response(serializer.data)
 
     @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,),
             serializer_class=BasketModelSerializer, url_path='basket')
