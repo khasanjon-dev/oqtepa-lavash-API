@@ -156,16 +156,21 @@ class UserViewSet(GenericViewSet):
     # ----------------------------------------------------------------------------------------------------------
     # addition actions
 
-    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
-            url_path='add-favorite')
-    def add_favorite(self, request, pk):
+    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer)
+    def favorite(self, request, pk):
         """
-        sevimlilarga qo'shish
+        sevimlilarga qo'shish va o'chirish
 
         ```
         """
         try:
             favorite, created = Favorite.objects.get_or_create(customer=request.user, product_id=pk)
+            if not created:
+                if favorite.is_like:
+                    favorite.is_like = False
+                else:
+                    favorite.is_like = True
+                favorite.save()
             serializer = FavoriteModelSerializer(favorite)
             return Response(serializer.data)
         except Exception as e:
@@ -184,7 +189,7 @@ class UserViewSet(GenericViewSet):
         ```
         """
         try:
-            Favorite.objects.filter(customer=request.user, product_id=pk).delete()
+            Favorite.objects.filter(customer=request.user, product_id=pk).update(is_like=False)
             return Response(status.HTTP_204_NO_CONTENT)
         except Exception as e:
             print(e)
@@ -199,7 +204,7 @@ class UserViewSet(GenericViewSet):
 
         ```
         """
-        favorites = request.user.favorites
+        favorites = Favorite.objects.filter(customer=request.user, is_like=True)
         product_ids = favorites.values_list('product', flat=True)
         query = Product.objects.all()
         queryset = query.filter(id__in=product_ids)
