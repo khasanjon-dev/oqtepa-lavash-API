@@ -28,4 +28,4 @@ class FavoriteModelSerializer(ModelSerializer):
 
     class Meta:
         model = Favorite
-        fields = ('id', 'product')
+        fields = ('id', 'is_like', 'product')

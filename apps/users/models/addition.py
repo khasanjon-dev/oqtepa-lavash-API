@@ -1,4 +1,5 @@
-from django.db.models import CASCADE, ForeignKey, IntegerField, Model
+from django.db.models import CASCADE, ForeignKey, IntegerField, Model, BooleanField
+
 from products.models import Product
 from users.models import User
 
@@ -7,6 +8,7 @@ class Favorite(Model):
     # relationships
     customer = ForeignKey(User, CASCADE, 'favorites')
     product = ForeignKey(Product, CASCADE, 'favorites')
+    is_like = BooleanField(default=True)
 
     class Meta:
         unique_together = ('customer', 'product')
