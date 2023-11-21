@@ -1,12 +1,11 @@
+from products.models import Category
+from products.serializers.category import CategorySerializer
+from products.serializers.product import ProductSerializerCategory
 from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
 from rest_framework.mixins import ListModelMixin
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
-
-from products.models import Category
-from products.serializers.category import CategorySerializer
-from products.serializers.product import ProductSerializerCategory
 
 
 class CategoryViewSet(ListModelMixin, GenericViewSet):

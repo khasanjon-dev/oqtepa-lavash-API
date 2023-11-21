@@ -1,7 +1,6 @@
+from products.models import Product
 from rest_framework.fields import BooleanField
 from rest_framework.serializers import ModelSerializer
-
-from products.models import Product
 
 
 class ProductModelSerializer(ModelSerializer):

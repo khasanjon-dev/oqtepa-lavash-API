@@ -1,7 +1,6 @@
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.settings import api_settings
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenViewBase
-
 from users.serializers.jwt_auth import MyTokenObtainPairSerializer
 
 
