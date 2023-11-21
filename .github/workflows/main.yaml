@@ -41,6 +41,7 @@ jobs:
             git commit -m "update database"
             git push
             git pull
+            python3 manage.py migrate
             source venv/bin/activate
             pip install -r requirements.txt
             systemctl restart backend.service
