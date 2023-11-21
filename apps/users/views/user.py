@@ -7,13 +7,12 @@ from rest_framework.permissions import (IsAuthenticated,
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
-from products.models import Product
 from users.models import Favorite
 from users.models import User
 from users.models.addition import Basket
 from users.serializers import (CodeCheckSerializer, RegisterSerializer,
                                UserModelSerializer)
-from users.serializers.addition import BasketModelSerializer, NoneSerializer, ProductSerializer
+from users.serializers.addition import BasketModelSerializer, NoneSerializer, FavoriteModelSerializer
 from users.serializers.register import PhoneSerializer
 from users.serializers.user import UserProfileSerializer, UserSerializer
 from utils.send_code import send_code_phone
@@ -195,7 +194,8 @@ class UserViewSet(GenericViewSet):
             detail = {'message': "Sevimlilardan o'chirishda xatolik!"}
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
-    @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,), serializer_class=ProductSerializer,
+    @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,),
+            serializer_class=FavoriteModelSerializer,
             url_path='favorites')
     def favorites(self, request):
         """
@@ -204,14 +204,11 @@ class UserViewSet(GenericViewSet):
         ```
         """
         favorites = request.user.favorites
-        favorites_ids = favorites.values_list('product', flat=True)
-        query = Product.objects.all()
-        queryset = query.filter(id__in=favorites_ids)
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-        serializer = self.get_serializer(queryset, many=True)
+        # page = self.paginate_queryset(queryset)
+        # if page is not None:
+        #     serializer = self.get_serializer(page, many=True)
+        #     return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(favorites, many=True)
         return Response(serializer.data)
 
     @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer)
