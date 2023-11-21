@@ -1,6 +1,7 @@
 from rest_framework.serializers import Serializer, ModelSerializer
 
 from products.models import Product
+from users.models import Favorite
 from users.models.addition import Basket
 
 
@@ -20,3 +21,14 @@ class BasketModelSerializer(ModelSerializer):
     class Meta:
         model = Basket
         fields = ('id', 'quantity', 'product')
+
+
+class FavoriteModelSerializer(ModelSerializer):
+    product = ProductSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Favorite
+        fields = (
+            'id',
+            'product',
+        )
