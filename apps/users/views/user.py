@@ -251,7 +251,7 @@ class UserViewSet(GenericViewSet):
         else:
             basket.quantity -= 1
             basket.save()
-        return Response(serializer.data, 204)
+        return Response(serializer.data, 200)
 
     @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
             url_path='remove-basket')
