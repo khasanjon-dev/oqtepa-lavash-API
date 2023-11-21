@@ -5,13 +5,15 @@ from rest_framework.permissions import (AllowAny, IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
+
+from products.models import Product
 from users.models import Favorite, User
 from users.models.addition import Basket
 from users.serializers import (CodeCheckSerializer, RegisterSerializer,
                                UserModelSerializer)
 from users.serializers.addition import (BasketModelSerializer,
                                         FavoriteModelSerializer,
-                                        NoneSerializer)
+                                        NoneSerializer, ProductSerializer)
 from users.serializers.register import PhoneSerializer
 from users.serializers.user import UserProfileSerializer, UserSerializer
 from utils.send_code import send_code_phone
@@ -164,14 +166,13 @@ class UserViewSet(GenericViewSet):
         """
         try:
             favorite, created = Favorite.objects.get_or_create(customer=request.user, product_id=pk)
-            detail = {'success': True}
-            if created:
-                return Response(detail, status.HTTP_201_CREATED)
-            detail['message'] = 'Already added!'
-            return Response(detail)
+            serializer = FavoriteModelSerializer(favorite)
+            return Response(serializer.data)
         except Exception as e:
-            print(e)
-            detail = {'message': "Sevimlilarga qo'shishda xatolik!"}
+            detail = {
+                'message': "Sevimlilarga qo'shishda xatolik!",
+                'error': f'{e}'
+            }
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
     @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
@@ -191,8 +192,7 @@ class UserViewSet(GenericViewSet):
             return Response(detail, status.HTTP_400_BAD_REQUEST)
 
     @action(methods=['get'], detail=False, permission_classes=(IsAuthenticated,),
-            serializer_class=FavoriteModelSerializer,
-            url_path='favorites')
+            serializer_class=ProductSerializer)
     def favorites(self, request):
         """
         favorite lar listini olish uchun
@@ -200,11 +200,10 @@ class UserViewSet(GenericViewSet):
         ```
         """
         favorites = request.user.favorites
-        # page = self.paginate_queryset(queryset)
-        # if page is not None:
-        #     serializer = self.get_serializer(page, many=True)
-        #     return self.get_paginated_response(serializer.data)
-        serializer = self.get_serializer(favorites, many=True)
+        product_ids = favorites.values_list('product', flat=True)
+        query = Product.objects.all()
+        queryset = query.filter(id__in=product_ids)
+        serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
     @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer)
