@@ -1,6 +1,7 @@
-from products.models import Product
 from rest_framework.fields import BooleanField
 from rest_framework.serializers import ModelSerializer
+
+from products.models import Product
 
 
 class ProductModelSerializer(ModelSerializer):
@@ -22,7 +23,7 @@ class ProductModelSerializer(ModelSerializer):
         rep = super().to_representation(instance)
         request = self.context['request']
         if request.user.is_authenticated:
-            rep['is_like'] = instance.basket.filter(customer=request.user).exists()
+            rep['is_like'] = instance.favorites.filter(customer=request.user).exists()
         return rep
 
 
@@ -37,5 +38,5 @@ class ProductSerializerCategory(ModelSerializer):
         rep = super().to_representation(instance)
         request = self.context['request']
         if request.user.is_authenticated:
-            rep['is_like'] = instance.basket.filter(customer=request.user).exists()
+            rep['is_like'] = instance.favorites.filter(customer=request.user).exists()
         return rep
