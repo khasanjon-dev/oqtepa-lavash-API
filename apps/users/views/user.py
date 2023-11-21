@@ -248,10 +248,10 @@ class UserViewSet(GenericViewSet):
         serializer = BasketModelSerializer(basket)
         if basket.quantity - 1 == 0:
             basket.delete()
-        else:
-            basket.quantity -= 1
-            basket.save()
-        return Response(serializer.data, 200)
+            return Response(status.HTTP_204_NO_CONTENT)
+        basket.quantity -= 1
+        basket.save()
+        return Response(serializer.data)
 
     @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
             url_path='remove-basket')
