@@ -185,10 +185,7 @@ class UserViewSet(GenericViewSet):
         """
         try:
             Favorite.objects.filter(customer=request.user, product_id=pk).delete()
-            detail = {
-                'success': True
-            }
-            return Response(detail, 204)
+            return Response(status.HTTP_204_NO_CONTENT)
         except Exception as e:
             print(e)
             detail = {'message': "Sevimlilardan o'chirishda xatolik!"}
