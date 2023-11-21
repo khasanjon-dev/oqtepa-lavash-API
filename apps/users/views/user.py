@@ -263,6 +263,7 @@ class UserViewSet(GenericViewSet):
         """
         basket = get_object_or_404(Basket, customer=request.user, id=pk)
         serializer = BasketModelSerializer(basket)
+        serializer.data['id'] = basket.id
         basket.delete()
         return Response(serializer.data)
 
