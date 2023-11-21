@@ -1,7 +1,5 @@
 from orders.models import OrderItem
-
 from rest_framework.serializers import ModelSerializer
-
 from users.serializers.addition import ProductSerializer
 
 

@@ -1,18 +1,17 @@
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
-from rest_framework.permissions import AllowAny
-from rest_framework.permissions import (IsAuthenticated,
+from rest_framework.permissions import (AllowAny, IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
-
-from users.models import Favorite
-from users.models import User
+from users.models import Favorite, User
 from users.models.addition import Basket
 from users.serializers import (CodeCheckSerializer, RegisterSerializer,
                                UserModelSerializer)
-from users.serializers.addition import BasketModelSerializer, NoneSerializer, FavoriteModelSerializer
+from users.serializers.addition import (BasketModelSerializer,
+                                        FavoriteModelSerializer,
+                                        NoneSerializer)
 from users.serializers.register import PhoneSerializer
 from users.serializers.user import UserProfileSerializer, UserSerializer
 from utils.send_code import send_code_phone
