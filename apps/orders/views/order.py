@@ -10,8 +10,8 @@ from rest_framework.viewsets import GenericViewSet
 
 class OrderViewSet(CreateModelMixin, GenericViewSet):
     """
-    ### Order yaratish uchun
-    ## Example:
+    order yaratish uchun
+
     ```
     {
         "address": "Toshken Chilonzor 6",
@@ -31,8 +31,8 @@ class OrderViewSet(CreateModelMixin, GenericViewSet):
             pagination_class=CustomPageNumberPagination, )
     def orders(self, request):
         """
-        ```
         Userga tegishli orderlar listini olish
+
         ```
         """
         orders = request.user.orders
