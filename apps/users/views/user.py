@@ -156,26 +156,38 @@ class UserViewSet(GenericViewSet):
     # ----------------------------------------------------------------------------------------------------------
     # addition actions
 
-    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer)
-    def favorite(self, request, pk):
+    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
+            url_path='add-favorite')
+    def add_favorite(self, request, pk):
         """
-        sevimlilarga qo'shish va o'chirish
+        sevimlilarga qo'shish
 
         ```
         """
         try:
             favorite, created = Favorite.objects.get_or_create(customer=request.user, product_id=pk)
             if not created:
-                if favorite.is_like:
-                    favorite.is_like = False
-                else:
-                    favorite.is_like = True
+                favorite.is_like = True
                 favorite.save()
             serializer = FavoriteModelSerializer(favorite)
             return Response(serializer.data)
         except Exception as e:
             detail = {
                 'message': "Sevimlilarga qo'shishda xatolik!",
+                'error': f'{e}'
+            }
+            return Response(detail, status.HTTP_400_BAD_REQUEST)
+
+    @action(methods=['delete'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
+            url_path='delete-favorite')
+    def delete_favorite(self, request, pk):
+        try:
+            favorite = Favorite.objects.filter(customer=request.user, product_id=pk).update(is_like=False)
+            serializer = FavoriteModelSerializer(favorite)
+            return Response(serializer.data)
+        except Exception as e:
+            detail = {
+                'message': "Sevimlilarga o'chirishda xatolik!",
                 'error': f'{e}'
             }
             return Response(detail, status.HTTP_400_BAD_REQUEST)
