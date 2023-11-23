@@ -156,18 +156,20 @@ class UserViewSet(GenericViewSet):
     # ----------------------------------------------------------------------------------------------------------
     # addition actions
 
-    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer,
-            url_path='add-favorite')
-    def add_favorite(self, request, pk):
+    @action(methods=['get'], detail=True, permission_classes=(IsAuthenticated,), serializer_class=NoneSerializer)
+    def favorite(self, request, pk):
         """
-        sevimlilarga qo'shish
+        sevimlilarga qo'shish va o'chirish
 
         ```
         """
         try:
             favorite, created = Favorite.objects.get_or_create(customer=request.user, product_id=pk)
             if not created:
-                favorite.is_like = True
+                if favorite.is_like:
+                    favorite.is_like = False
+                else:
+                    favorite.is_like = True
                 favorite.save()
             serializer = FavoriteModelSerializer(favorite)
             return Response(serializer.data)
