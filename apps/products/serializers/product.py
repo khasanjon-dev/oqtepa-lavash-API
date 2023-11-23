@@ -2,7 +2,6 @@ from rest_framework.fields import BooleanField
 from rest_framework.serializers import ModelSerializer
 
 from products.models import Product
-from users.models import Favorite
 
 
 class ProductModelSerializer(ModelSerializer):
@@ -24,5 +23,5 @@ class ProductModelSerializer(ModelSerializer):
         rep = super().to_representation(instance)
         request = self.context['request']
         if request.user.is_authenticated:
-            rep['is_like'] = Favorite.objects.filter(customer=request.user, is_like=True).exists()
+            rep['is_like'] = instance.favorites.filter(is_like=True, customer=request.user).exists()
         return rep
