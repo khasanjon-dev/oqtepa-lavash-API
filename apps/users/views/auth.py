@@ -24,7 +24,7 @@ class LoginView(TokenObtainPairView):
 
 class CustomTokenRefreshView(TokenViewBase):
     """
-    refresh token olish uchun
+    refresh token orqali access token olish
 
     ```
     """
