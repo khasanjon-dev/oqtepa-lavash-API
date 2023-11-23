@@ -30,7 +30,6 @@ class UserViewSet(GenericViewSet):
         register qilish uchun
 
         ```
-
         "name": "Khasan",
         "phone": "901001010"
         """
@@ -40,6 +39,7 @@ class UserViewSet(GenericViewSet):
         name = serializer.data.get('name')
         user, created = User.objects.update_or_create(phone=phone)
         user.name = name
+        user.save()
         code = send_code_phone(user.phone)
         data = serializer.data
         detail = 'update'
