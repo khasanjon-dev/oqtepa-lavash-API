@@ -2,6 +2,10 @@
 #  [Oqtepa Lavash Clone](https://oqtepalavash.uz/)
 
 ### Oqtepa Lavash saytining Backend qismi API
+<img src="https://telegra.ph/file/6d45f443910e44cd0396e.png">
+<img src="https://telegra.ph/file/89086569cff3b08c9d345.png">
+<img src="https://telegra.ph/file/1ec2dcaa18a0e839ae6e0.png">
+
 ## Documentation
 
 ### Env o'zgaruvchilari
@@ -19,6 +23,7 @@ REDIS_TIMEOUT=300 # in second
 Auth qismi parol va username emas balki telefon raqam va unga keluvchi kod orqali tasdiqlashda userga acess token va refresh token beriladi va boshqa API lar odatdagidek.
 
 # Foydalanilgan Texnologiyalar
+
 
 <p>
   <a>
